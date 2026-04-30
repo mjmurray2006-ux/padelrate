@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PadelRate — Best Padel Racket Reviews & Ratings UK 2026</title>
+<meta name="description" content="Independent padel racket reviews and ratings. Find the best padel racket for your level and budget with honest, data-driven scores.">
+<meta name="keywords" content="padel racket reviews, best padel racket UK, padel racket ratings 2026, buy padel racket">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0e0e0e;color:#fff;font-family:'Inter',system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:#111;border-bottom:1px solid #1e1e1e;position:sticky;top:0;z-index:100}
+.logo{font-size:1.4rem;font-weight:800}.logo span{color:#c8f135}
+nav ul{list-style:none;display:flex;gap:28px}
+nav ul a{font-size:.9rem;color:#aaa;transition:color .2s}
+nav ul a:hover{color:#c8f135}
+.hero{padding:80px 40px 40px;max-width:700px}
+.hero-badge{background:#c8f135;color:#0e0e0e;font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:20px;letter-spacing:.08em}
+.hero h1{font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:16px}
+.hero h1 span{color:#c8f135}
+.hero p{color:#aaa;font-size:1rem;line-height:1.6}
+.section{padding:40px 40px;max-width:1400px;margin:0 auto}
+.section-title{font-size:1.4rem;font-weight:800;margin-bottom:24px}
+.section-title span{color:#c8f135}
+.best-picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:48px}
+.pick-card{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;cursor:pointer;transition:border-color .2s,transform .2s}
+.pick-card:hover{border-color:#c8f135;transform:translateY(-2px)}
+.pick-label{font-size:.65rem;font-weight:700;color:#c8f135;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.pick-name{font-size:1rem;font-weight:700;margin-bottom:4px}
+.pick-brand{font-size:.8rem;color:#666;margin-bottom:12px}
+.pick-score{font-size:1.8rem;font-weight:900;color:#c8f135}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.filter-btn{background:#161616;border:1px solid #333;color:#aaa;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.85rem;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:#c8f135;color:#0e0e0e;border-color:#c8f135;font-weight:700}
+.racket-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.racket-card{background:#161616;border:1px solid #222;border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s}
+.racket-card:hover{border-color:#c8f135;transform:translateY(-3px)}
+.card-img{width:100%;height:180px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:contain;padding:16px}
+.card-img-placeholder{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.card-body{padding:18px}
+.card-badge{font-size:.65rem;font-weight:700;background:#1e2a00;color:#c8f135;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:8px;letter-spacing:.06em}
+.card-name{font-size:1.05rem;font-weight:800;margin-bottom:2px}
+.card-brand{font-size:.8rem;color:#666;margin-bottom:12px}
+.card-stats{display:flex;gap:12px;margin-bottom:14px}
+.stat{flex:1;text-align:center}
+.stat-val{font-size:1rem;font-weight:800;color:#c8f135}
+.stat-label{font-size:.65rem;color:#666;text-transform:uppercase;letter-spacing:.06em}
+.card-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #222;padding-top:12px}
+.card-price{font-size:.95rem;font-weight:700}
+.card-score{font-size:1.5rem;font-weight:900;color:#c8f135}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:.65rem;background:#1a1a1a;border:1px solid #2a2a2a;color:#888;padding:3px 8px;border-radius:4px}
+.no-results{color:#666;font-size:1rem;padding:40px 0;text-align:center;display:none}
+footer{background:#111;border-top:1px solid #1e1e1e;padding:40px;text-align:center;color:#444;font-size:.85rem;margin-top:60px}
+footer a{color:#666}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Padel<span>Rate</span></div>
+  <ul>
+    <li><a href="#rackets">Rackets</a></li>
+    <li><a href="#best">Best For</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">INDEPENDENT REVIEWS</div>
+  <h1>Find Your Perfect<br><span>Padel Racket</span></h1>
+  <p>Honest, data-driven ratings for every level. Filter, compare, and click through to the best prices online.</p>
+</div>
+
+<div class="section">
+  <div id="best"></div>
+  <h2 class="section-title">Best <span>Picks</span> by Category</h2>
+  <div class="best-picks" id="bestPicks"></div>
+
+  <div id="rackets"></div>
+  <h2 class="section-title">All <span>Rackets</span></h2>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="beginner">Beginner</button>
+    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+    <button class="filter-btn" data-filter="advanced">Advanced</button>
+    <button class="filter-btn" data-filter="control">Control</button>
+    <button class="filter-btn" data-filter="power">Power</button>
+  </div>
+  <div class="racket-grid" id="racketGrid"></div>
+  <p class="no-results" id="noResults">No rackets match this filter.</p>
+</div>
+
+<footer>
+  <p>PadelRate &copy; 2026 &mdash; Independent reviews. Some links may be affiliate links. <a href="about.html">About us</a></p>
+</footer>
+
+<script>
+var rackets = [
+  {
+    slug:"bullpadel-hack-03-hybrid",
+    name:"Hack 03 Hybrid",
+    brand:"Bullpadel",
+    level:"Advanced",
+    shape:"Diamond",
+    price:"£249",
+    score:94,
+    power:91,
+    control:88,
+    touch:85,
+    badge:"BEST OVERALL",
+    tags:["advanced","power","diamond"],
+    img:"",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"head-speed-motion",
+    name:"Speed Motion",
+    brand:"Head",
+    level:"Beginner / Intermediate",
+    shape:"Round",
+    price:"£89",
+    score:85,
+    power:72,
+    control:88,
+    touch:90,
+    badge:"BEGINNER PICK",
+    tags:["beginner","intermediate","control","round"],
+    img:"https://cdn-mdb.head.com/images/products/medium/26/228262.jpg",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"nox-at10-genius-12k",
+    name:"AT10 Genius 12K",
+    brand:"NOX",
+    level:"Advanced",
+    shape:"Diamond",
+    price:"£279",
+    score:93,
+    power:93,
+    control:82,
+    touch:78,
+    badge:"TOP POWER",
+    tags:["advanced","power","diamond"],
+    img:"",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"bullpadel-vertex-05",
+    name:"Vertex 05",
+    brand:"Bullpadel",
+    level:"Advanced",
+    shape:"Diamond",
+    price:"£229",
+    score:91,
+    power:90,
+    control:83,
+    touch:80,
+    badge:"POWER PICK",
+    tags:["advanced","power","diamond"],
+    img:"",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"babolat-technical-viper-3",
+    name:"Technical Viper 3.0",
+    brand:"Babolat",
+    level:"Intermediate / Advanced",
+    shape:"Teardrop",
+    price:"£199",
+    score:88,
+    power:85,
+    control:87,
+    touch:84,
+    badge:"BEST VALUE",
+    tags:["intermediate","advanced","control","teardrop"],
+    img:"",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"adidas-metalbone-2026",
+    name:"Metalbone 2026",
+    brand:"Adidas",
+    level:"Advanced",
+    shape:"Diamond",
+    price:"£259",
+    score:92,
+    power:92,
+    control:84,
+    touch:80,
+    badge:"ELITE PICK",
+    tags:["advanced","power","diamond"],
+    img:"",
+    affiliateUrl:"#"
+  },
+  {
+    slug:"oxdog-hyper-pro-2",
+    name:"Hyper Pro 2.0",
+    brand:"Oxdog",
+    level:"Intermediate / Advanced",
+    shape:"Teardrop",
+    price:"£189",
+    score:87,
+    power:83,
+    control:86,
+    touch:85,
+    badge:"MID-RANGE GEM",
+    tags:["intermediate","advanced","control","teardrop"],
+    img:"",
+    affiliateUrl:"#"
+  }
+];
+
+var bestPicks = [
+  {label:"BEST OVERALL", slug:"bullpadel-hack-03-hybrid"},
+  {label:"BEST FOR BEGINNERS", slug:"head-speed-motion"},
+  {label:"BEST UNDER £200", slug:"oxdog-hyper-pro-2"},
+  {label:"BEST FOR CONTROL", slug:"babolat-technical-viper-3"},
+  {label:"BEST FOR POWER", slug:"nox-at10-genius-12k"},
+  {label:"BEST MID-RANGE", slug:"bullpadel-vertex-05"}
+];
+
+function getRacket(slug){ return rackets.find(function(r){return r.slug===slug}); }
+
+function svgPlaceholder(brand){
+  var initials = brand.substring(0,2).toUpperCase();
+  return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="160" viewBox="0 0 120 160"><rect width="120" height="160" fill="%231a1a1a"/><text x="60" y="70" font-family="Arial" font-size="18" fill="%23c8f135" text-anchor="middle" font-weight="bold">'+initials+'</text><rect x="40" y="80" width="40" height="55" rx="8" fill="%23333"/><rect x="55" y="135" width="10" height="15" rx="2" fill="%23444"/></svg>';
+}
+
+function renderBestPicks(){
+  var html = '';
+  bestPicks.forEach(function(p){
+    var r = getRacket(p.slug);
+    if(!r) return;
+    html += '<div class="pick-card" onclick="window.location='review.html?racket='+r.slug+''">';
+    html += '<div class="pick-label">'+p.label+'</div>';
+    html += '<div class="pick-name">'+r.name+'</div>';
+    html += '<div class="pick-brand">'+r.brand+'</div>';
+    html += '<div class="pick-score">'+r.score+'</div>';
+    html += '</div>';
+  });
+  document.getElementById('bestPicks').innerHTML = html;
+}
+
+function renderRackets(filter){
+  var filtered = filter === 'all' ? rackets : rackets.filter(function(r){return r.tags.indexOf(filter)!==-1});
+  var noResults = document.getElementById('noResults');
+  if(filtered.length === 0){ noResults.style.display='block'; document.getElementById('racketGrid').innerHTML=''; return; }
+  noResults.style.display='none';
+  var html = '';
+  filtered.forEach(function(r){
+    var imgSrc = r.img || svgPlaceholder(r.brand);
+    html += '<div class="racket-card" onclick="window.location='review.html?racket='+r.slug+''">';
+    html += '<div class="card-img"><img src="'+imgSrc+'" alt="'+r.name+'" onerror="this.src=''+svgPlaceholder(r.brand)+''"></div>';
+    html += '<div class="card-body">';
+    html += '<div class="card-badge">'+r.badge+'</div>';
+    html += '<div class="card-name">'+r.name+'</div>';
+    html += '<div class="card-brand">'+r.brand+' &middot; '+r.level+'</div>';
+    html += '<div class="card-stats">';
+    html += '<div class="stat"><div class="stat-val">'+r.power+'</div><div class="stat-label">Power</div></div>';
+    html += '<div class="stat"><div class="stat-val">'+r.control+'</div><div class="stat-label">Control</div></div>';
+    html += '<div class="stat"><div class="stat-val">'+r.touch+'</div><div class="stat-label">Touch</div></div>';
+    html += '</div>';
+    html += '<div class="card-footer"><span class="card-price">'+r.price+'</span><span class="card-score">'+r.score+'</span></div>';
+    html += '<div class="card-tags">'+r.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('')+'</div>';
+    html += '</div></div>';
+  });
+  document.getElementById('racketGrid').innerHTML = html;
+}
+
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    renderRackets(btn.getAttribute('data-filter'));
+  });
+});
+
+renderBestPicks();
+renderRackets('all');
+</script>
+</body>
+</html>
