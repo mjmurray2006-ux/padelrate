@@ -124,7 +124,7 @@ footer a:hover{color:var(--text)}
 <script>
 var rackets = [
   {slug:"bullpadel-hack-03-hybrid",name:"Hack 03 Hybrid",brand:"Bullpadel",level:"advanced",shape:"diamond",price:249,origPrice:279,score:94,power:92,control:80,touch:75,badge:"editors",badgeText:"Editor's Pick",tags:["Power","Diamond","Carbon Fibre"],img:"hack-03-hybrid.jpg"},
-  {slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"beginner",shape:"round",price:89,score:85,power:72,control:88,touch:90,badge:"budget",badgeText:"Best Value",tags:["Beginner","Control","Round"],img:"https://cdn-mdb.head.com/CDN3/G/221075/1/683x911/speed-motion-2025.webp"},
+  {slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"beginner",shape:"round",price:89,score:85,power:72,control:88,touch:90,badge:"budget",badgeText:"Best Value",tags:["Beginner","Control","Round"],img:"images/head-speed-motion.jpg"},
   {slug:"nox-at10-genius-12k",name:"AT10 Genius 12K",brand:"NOX",level:"advanced",shape:"teardrop",price:178,score:91,power:86,control:88,touch:84,badge:null,tags:["Control","Teardrop","Carbon 12K"],img:""},
   {slug:"bullpadel-vertex-05",name:"Vertex 05",brand:"Bullpadel",level:"advanced",shape:"diamond",price:259,score:90,power:90,control:82,touch:76,badge:null,tags:["Power","Diamond","Advanced"],img:""},
   {slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"advanced",shape:"diamond",price:299,score:89,power:93,control:74,touch:70,badge:null,tags:["Max Power","Diamond","Carbon"],img:""},
