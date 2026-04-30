@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PadelRate - Best Padel Racket Reviews & Ratings UK 2026</title>
-<meta name="description" content="Independent padel racket reviews and ratings. Find the best padel racket for your level and budget with honest, data-driven scores.">
-<meta name="keywords" content="padel racket reviews, best padel racket UK, padel racket ratings 2026, buy padel racket">
+<title>PadelRate - Best Padel Racket Reviews and Ratings UK 2026</title>
+<meta name="description" content="Independent padel racket reviews and ratings. Find the best padel racket for your level and budget.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0e0e0e;color:#fff;font-family:Inter,system-ui,sans-serif}
@@ -93,12 +92,12 @@ footer a{color:#666}
 <script>
 var rackets=[
 {slug:"bullpadel-hack-03-hybrid",name:"Hack 03 Hybrid",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:"249",score:94,power:91,control:88,touch:85,badge:"BEST OVERALL",tags:["advanced","power","diamond"],img:"",affiliateUrl:"#"},
-{slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"Beginner / Intermediate",shape:"Round",price:"89",score:85,power:72,control:88,touch:90,badge:"BEGINNER PICK",tags:["beginner","intermediate","control","round"],img:"https://cdn-mdb.head.com/images/products/medium/26/228262.jpg",affiliateUrl:"#"},
+{slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"Beginner",shape:"Round",price:"89",score:85,power:72,control:88,touch:90,badge:"BEGINNER PICK",tags:["beginner","intermediate","control","round"],img:"https://cdn-mdb.head.com/images/products/medium/26/228262.jpg",affiliateUrl:"#"},
 {slug:"nox-at10-genius-12k",name:"AT10 Genius 12K",brand:"NOX",level:"Advanced",shape:"Diamond",price:"279",score:93,power:93,control:82,touch:78,badge:"TOP POWER",tags:["advanced","power","diamond"],img:"",affiliateUrl:"#"},
 {slug:"bullpadel-vertex-05",name:"Vertex 05",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:"229",score:91,power:90,control:83,touch:80,badge:"POWER PICK",tags:["advanced","power","diamond"],img:"",affiliateUrl:"#"},
-{slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"Intermediate / Advanced",shape:"Teardrop",price:"199",score:88,power:85,control:87,touch:84,badge:"BEST VALUE",tags:["intermediate","advanced","control","teardrop"],img:"",affiliateUrl:"#"},
+{slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"Intermediate",shape:"Teardrop",price:"199",score:88,power:85,control:87,touch:84,badge:"BEST VALUE",tags:["intermediate","advanced","control","teardrop"],img:"",affiliateUrl:"#"},
 {slug:"adidas-metalbone-2026",name:"Metalbone 2026",brand:"Adidas",level:"Advanced",shape:"Diamond",price:"259",score:92,power:92,control:84,touch:80,badge:"ELITE PICK",tags:["advanced","power","diamond"],img:"",affiliateUrl:"#"},
-{slug:"oxdog-hyper-pro-2",name:"Hyper Pro 2.0",brand:"Oxdog",level:"Intermediate / Advanced",shape:"Teardrop",price:"189",score:87,power:83,control:86,touch:85,badge:"MID-RANGE GEM",tags:["intermediate","advanced","control","teardrop"],img:"",affiliateUrl:"#"}
+{slug:"oxdog-hyper-pro-2",name:"Hyper Pro 2.0",brand:"Oxdog",level:"Intermediate",shape:"Teardrop",price:"189",score:87,power:83,control:86,touch:85,badge:"MID-RANGE GEM",tags:["intermediate","advanced","control","teardrop"],img:"",affiliateUrl:"#"}
 ];
 var bestPicks=[
 {label:"BEST OVERALL",slug:"bullpadel-hack-03-hybrid"},
@@ -108,23 +107,24 @@ var bestPicks=[
 {label:"BEST FOR POWER",slug:"nox-at10-genius-12k"},
 {label:"BEST MID-RANGE",slug:"bullpadel-vertex-05"}
 ];
-function getRacket(slug){return rackets.find(function(r){return r.slug===slug});}
-function makeSVG(brand){
-  var i=brand.substring(0,2).toUpperCase();
-  return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='160'%3E%3Crect width='120' height='160' fill='%231a1a1a'/%3E%3Ctext x='60' y='70' font-family='Arial' font-size='18' fill='%23c8f135' text-anchor='middle' font-weight='bold'%3E"+i+"%3C/text%3E%3Crect x='40' y='80' width='40' height='55' rx='8' fill='%23333'/%3E%3C/svg%3E";
-}
+function getRacket(slug){return rackets.find(function(r){return r.slug===slug;});}
+function makeSVG(b){var i=b.substring(0,2).toUpperCase();return "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='160'><rect width='120' height='160' fill='%231a1a1a'/><text x='60' y='80' font-family='Arial' font-size='20' fill='%23c8f135' text-anchor='middle'>"+i+"</text></svg>";}
+function goToReview(slug){window.location.href="review.html?racket="+slug;}
 function renderBestPicks(){
   var h="";
   bestPicks.forEach(function(p){
     var r=getRacket(p.slug);
     if(!r)return;
-    h+="<div class='pick-card' onclick="location.href='review.html?racket="+r.slug+"'">";
+    h+="<div class='pick-card' data-slug='"+r.slug+"'>";
     h+="<div class='pick-label'>"+p.label+"</div>";
     h+="<div class='pick-name'>"+r.name+"</div>";
     h+="<div class='pick-brand'>"+r.brand+"</div>";
     h+="<div class='pick-score'>"+r.score+"</div></div>";
   });
   document.getElementById("bestPicks").innerHTML=h;
+  document.querySelectorAll(".pick-card").forEach(function(c){
+    c.addEventListener("click",function(){goToReview(this.getAttribute("data-slug"));});
+  });
 }
 function renderRackets(filter){
   var filtered=filter==="all"?rackets:rackets.filter(function(r){return r.tags.indexOf(filter)!==-1;});
@@ -133,23 +133,26 @@ function renderRackets(filter){
   noR.style.display="none";
   var h="";
   filtered.forEach(function(r){
-    var img=r.img||makeSVG(r.brand);
-    h+="<div class='racket-card' onclick="location.href='review.html?racket="+r.slug+"'">";
+    var img=r.img?r.img:makeSVG(r.brand);
+    h+="<div class='racket-card' data-slug='"+r.slug+"'>";
     h+="<div class='card-img'><img src='"+img+"' alt='"+r.name+"'></div>";
     h+="<div class='card-body'>";
     h+="<div class='card-badge'>"+r.badge+"</div>";
     h+="<div class='card-name'>"+r.name+"</div>";
-    h+="<div class='card-brand'>"+r.brand+" &middot; "+r.level+"</div>";
+    h+="<div class='card-brand'>"+r.brand+" - "+r.level+"</div>";
     h+="<div class='card-stats'>";
     h+="<div class='stat'><div class='stat-val'>"+r.power+"</div><div class='stat-label'>Power</div></div>";
     h+="<div class='stat'><div class='stat-val'>"+r.control+"</div><div class='stat-label'>Control</div></div>";
     h+="<div class='stat'><div class='stat-val'>"+r.touch+"</div><div class='stat-label'>Touch</div></div>";
     h+="</div>";
-    h+="<div class='card-footer'><span class='card-price'>&pound;"+r.price+"</span><span class='card-score'>"+r.score+"</span></div>";
+    h+="<div class='card-footer'><span class='card-price'>from "+r.price+"</span><span class='card-score'>"+r.score+"</span></div>";
     h+="<div class='card-tags'>"+r.tags.map(function(t){return "<span class='tag'>"+t+"</span>";}).join("")+"</div>";
     h+="</div></div>";
   });
   document.getElementById("racketGrid").innerHTML=h;
+  document.querySelectorAll(".racket-card").forEach(function(c){
+    c.addEventListener("click",function(){goToReview(this.getAttribute("data-slug"));});
+  });
 }
 document.querySelectorAll(".filter-btn").forEach(function(btn){
   btn.addEventListener("click",function(){
