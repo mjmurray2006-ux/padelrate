@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0e0e0e;color:#fff;font-family:Inter,system-ui,sans-serif}
 a{color:inherit;text-decoration:none}
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:#111;border-bottom:1px solid #1e1e1e;position:sticky;top:0;z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:#111;border-bottom:1px solid #1e1e1e;position:sticky;top:0;z-index:10}
 .logo{font-size:1.4rem;font-weight:800}.logo span{color:#c8f135}
 nav ul{list-style:none;display:flex;gap:28px}
 nav ul a{font-size:.9rem;color:#aaa;transition:color .2s}
@@ -18,45 +18,54 @@ nav ul a:hover{color:#c8f135}
 .back a{color:#c8f135;font-size:.9rem;font-weight:600}
 .back a:hover{text-decoration:underline}
 .review-hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:20px 40px 40px;max-width:1100px;margin:0 auto}
-.review-img{background:#fff;border:1px solid #222;border-radius:16px;display:flex;align-items:center;justify-content:center;min-height:320px;overflow:hidden}
+.review-img{background:#1a1a1a;border-radius:16px;overflow:hidden}
 .review-img img{width:100%;max-height:320px;object-fit:contain;padding:24px}
 .review-info{display:flex;flex-direction:column;justify-content:center}
-.review-badge{background:#c8f135;color:#0e0e0e;font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:12px;letter-spacing:.08em}
-.review-name{font-size:2.2rem;font-weight:900;margin-bottom:4px}
-.review-brand{font-size:1rem;color:#aaa;margin-bottom:20px}
-.score-big{font-size:4rem;font-weight:900;color:#c8f135;line-height:1}
-.score-label{font-size:.8rem;color:#666;margin-bottom:24px;margin-top:4px}
+.review-badge{background:#c8f135;color:#000;font-size:.75rem;font-weight:800;padding:6px 12px;border-radius:4px;display:inline-block;margin-bottom:12px;width:fit-content}
+.review-name{font-size:2.2rem;font-weight:800;margin-bottom:4px}
+.review-brand{color:#aaa;font-size:1rem;margin-bottom:20px}
+.score-big{font-size:3.5rem;font-weight:900;color:#c8f135;line-height:1}
+.score-label{color:#aaa;font-size:.8rem;margin-bottom:16px;margin-top:4px}
 .stat-bars{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
-.bar-row{display:flex;align-items:center;gap:12px}
-.bar-name{font-size:.8rem;color:#aaa;width:60px}
-.bar-track{flex:1;background:#1e1e1e;border-radius:4px;height:8px;overflow:hidden}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-name{width:60px;font-size:.8rem;color:#aaa}
+.bar-track{flex:1;background:#2a2a2a;border-radius:4px;height:8px;overflow:hidden}
 .bar-fill{height:100%;background:#c8f135;border-radius:4px}
-.bar-val{font-size:.8rem;font-weight:700;color:#c8f135;width:28px;text-align:right}
-.buy-btn{display:inline-block;background:#c8f135;color:#0e0e0e;font-weight:800;font-size:.95rem;padding:14px 28px;border-radius:10px;margin-top:8px;width:fit-content}
+.bar-val{font-size:.85rem;font-weight:700;color:#c8f135;width:28px;text-align:right}
+.buy-btn{background:#c8f135;color:#000;padding:14px 28px;border-radius:8px;font-weight:800;font-size:1rem;display:inline-block;text-align:center;transition:opacity .2s}
 .buy-btn:hover{opacity:.85}
-.review-body{max-width:1100px;margin:0 auto;padding:0 40px 60px;display:grid;grid-template-columns:2fr 1fr;gap:40px}
-.review-section{margin-bottom:32px}
-.review-section h2{font-size:1.2rem;font-weight:800;margin-bottom:12px;color:#c8f135}
-.review-section p{color:#ccc;line-height:1.7;font-size:.95rem}
-.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
-.pros,.cons{background:#161616;border:1px solid #222;border-radius:12px;padding:18px}
-.pros h3{color:#c8f135;font-size:.9rem;margin-bottom:10px}
-.cons h3{color:#f13535;font-size:.9rem;margin-bottom:10px}
-.pros ul,.cons ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.review-body{max-width:1100px;margin:0 auto;padding:0 40px 60px;display:grid;grid-template-columns:1fr 320px;gap:40px}
+.review-main{}
+.review-section{margin-bottom:36px}
+.review-section h2{color:#c8f135;font-size:1.2rem;font-weight:800;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
+.verdict-text{color:#ccc;line-height:1.75;font-size:1rem}
+.full-review-text p{color:#ccc;line-height:1.8;font-size:.95rem;margin-bottom:14px}
+.full-review-text p:last-child{margin-bottom:0}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.pros,.cons{background:#1a1a1a;border-radius:12px;padding:20px}
+.pros h3{color:#c8f135;font-size:.85rem;font-weight:800;text-transform:uppercase;margin-bottom:12px}
+.cons h3{color:#e05555;font-size:.85rem;font-weight:800;text-transform:uppercase;margin-bottom:12px}
+.pros li,.cons li{font-size:.9rem;color:#ccc;line-height:1.6;list-style:none;padding:4px 0;border-bottom:1px solid #2a2a2a}
+.pros li:last-child,.cons li:last-child{border-bottom:none}
 .pros li::before{content:"+ ";color:#c8f135;font-weight:700}
-.cons li::before{content:"- ";color:#f13535;font-weight:700}
-.pros li,.cons li{font-size:.85rem;color:#ccc}
-.specs-box{background:#161616;border:1px solid #222;border-radius:12px;padding:20px}
-.specs-box h3{font-size:1rem;font-weight:800;margin-bottom:14px}
-.spec-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222;font-size:.85rem}
+.cons li::before{content:"- ";color:#e05555;font-weight:700}
+.best-for-text{color:#ccc;line-height:1.7;font-size:.95rem}
+.specs-box{background:#1a1a1a;border-radius:16px;padding:28px;height:fit-content;position:sticky;top:80px}
+.specs-box h2{font-size:1rem;font-weight:800;margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em}
+.spec-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2a2a2a;font-size:.9rem}
 .spec-row:last-child{border-bottom:none}
-.spec-key{color:#666}
-.spec-val{font-weight:600}
-.not-found{color:#666;padding:60px 40px;font-size:1rem}
-.not-found a{color:#c8f135}
-@media(max-width:768px){.review-hero,.review-body{grid-template-columns:1fr}.pros-cons{grid-template-columns:1fr}}
-footer{background:#111;border-top:1px solid #1e1e1e;padding:40px;text-align:center;color:#444;font-size:.85rem;margin-top:20px}
-footer a{color:#666}
+.spec-label{color:#aaa}
+.spec-val{font-weight:700;color:#fff}
+.not-found{text-align:center;padding:80px 40px;color:#aaa}
+@media(max-width:768px){
+.review-hero{grid-template-columns:1fr}
+.review-body{grid-template-columns:1fr}
+.pros-cons{grid-template-columns:1fr}
+nav{padding:14px 20px}
+.back{padding:14px 20px}
+.review-hero{padding:14px 20px 30px}
+.review-body{padding:0 20px 40px}
+}
 </style>
 </head>
 <body>
@@ -68,67 +77,279 @@ footer a{color:#666}
     <li><a href="about.html">About</a></li>
   </ul>
 </nav>
-<div class="back"><a href="index.html">&larr; Back to all rackets</a></div>
+<div class="back"><a href="index.html">&#8592; Back to all rackets</a></div>
 <div id="reviewHero"></div>
 <div id="reviewBody"></div>
-<footer>
-  <p>PadelRate &copy; 2026 &mdash; Independent reviews. Some links may be affiliate links. <a href="about.html">About us</a></p>
-</footer>
 <script>
-var rackets=[
-{slug:"bullpadel-hack-03-hybrid",name:"Hack 03 Hybrid",brand:"Bullpadel",level:"Advanced",shape:"Diamond",weight:"365g",balance:"High",core:"Multieva HR",price:"249",score:94,power:91,control:88,touch:85,badge:"BEST OVERALL",img:"images/hack-03-hybrid.jpg",affiliateUrl:"#",verdict:"The Bullpadel Hack 03 Hybrid is one of the best all-round diamond rackets on the market in 2026. It combines explosive power with surprising control, making it a favourite among competitive club players and semi-professionals.",pros:["Explosive power from the sweet spot","Solid feel and good feedback","Premium build quality","Versatile for attack and defence"],cons:["Demanding for beginners","Pricier than mid-range options","Arm fatigue over long sessions"],bestFor:"Advanced players who want a dominant attacking racket with control."},
-{slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"Beginner / Intermediate",shape:"Round",weight:"360g",balance:"Low",core:"EVA Soft",price:"89",score:85,power:72,control:88,touch:90,badge:"BEGINNER PICK",img:"images/head-speed-motion.jpg",affiliateUrl:"#",verdict:"The Head Speed Motion is the ideal entry point for new padel players. Its round shape and low balance point make it extremely easy to manoeuvre, and the EVA Soft core absorbs vibration beautifully.",pros:["Very easy to play with","Excellent touch and feel","Lightweight and manoeuvrable","Great price for the quality"],cons:["Limited power for advanced play","Round shape restricts spin generation","Not suitable for competitive play long term"],bestFor:"Beginners and improvers who want a forgiving, easy-to-use racket."},
-{slug:"nox-at10-genius-12k",name:"AT10 Genius 12K",brand:"NOX",level:"Advanced",shape:"Diamond",weight:"365g",balance:"High",core:"HR3 Eva",price:"279",score:93,power:93,control:82,touch:78,badge:"TOP POWER",img:"images/nox-at10.jpg",affiliateUrl:"#",verdict:"The NOX AT10 Genius 12K is a weapon for players who want maximum aggression. Used by world number one Agustin Tapia, this racket is engineered for explosive smashes and devastating flat drives.",pros:["Extreme power output","World-class carbon frame","Iconic pro-player endorsement","Exceptional smash performance"],cons:["Hard to control for intermediates","Very demanding on technique","Higher price point","Small sweet spot"],bestFor:"Advanced attacking players who want the ultimate power racket."},
-{slug:"bullpadel-vertex-05",name:"Vertex 05",brand:"Bullpadel",level:"Advanced",shape:"Diamond",weight:"370g",balance:"High",core:"Multieva",price:"229",score:91,power:90,control:83,touch:80,badge:"POWER PICK",img:"images/vertex-05.jpg",affiliateUrl:"#",verdict:"The Bullpadel Vertex 05 sits just below the Hack 03 Hybrid in the lineup but still delivers exceptional power for advanced players.",pros:["Excellent power and pace","Well-built Bullpadel quality","Good balance between power and control","Slightly more affordable than top-tier models"],cons:["Heavy balance can fatigue arm","Not ideal for beginners","Requires high swing speed"],bestFor:"Advanced players wanting elite power at a slightly lower price point."},
-{slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"Intermediate / Advanced",shape:"Teardrop",weight:"360g",balance:"Medium-High",core:"Foam HR",price:"199",score:88,power:85,control:87,touch:84,badge:"BEST VALUE",img:"images/technical-viper3.0.jpg",affiliateUrl:"#",verdict:"The Babolat Technical Viper 3.0 is a brilliantly balanced teardrop racket that bridges the gap between control and power.",pros:["Great power/control balance","Teardrop shape suits all-round play","Comfortable over long matches","Strong Babolat build quality"],cons:["Not as powerful as diamond rackets","Mid-range feel for serious competitors","Limited top-end spin potential"],bestFor:"Intermediate to advanced players who want a versatile all-court racket."},
-{slug:"adidas-metalbone-2026",name:"Metalbone 2026",brand:"Adidas",level:"Advanced",shape:"Diamond",weight:"365g",balance:"High",core:"EVA High Memory",price:"259",score:92,power:92,control:84,touch:80,badge:"ELITE PICK",img:"images/metalbone-carbon.jpg",affiliateUrl:"#",verdict:"The Adidas Metalbone 2026 is the flagship racket from Adidas Padel and lives up to its reputation. Renowned for its bone-crushing power.",pros:["Incredible power output","Premium materials throughout","Prestigious pro-player model","Improved control over previous version"],cons:["Expensive","Demanding for club-level players","Heavy for some wrist types"],bestFor:"Advanced and professional players wanting elite power and prestige."},
-{slug:"oxdog-hyper-pro-2",name:"Hyper Pro 2.0",brand:"Oxdog",level:"Intermediate / Advanced",shape:"Teardrop",weight:"358g",balance:"Medium",core:"EVA Soft",price:"189",score:87,power:83,control:86,touch:85,badge:"MID-RANGE GEM",img:"images/hyper-pro-2.0.jpg",affiliateUrl:"#",verdict:"The Oxdog Hyper Pro 2.0 punches well above its price tag. This Scandinavian brand brings impressive engineering to the mid-range market.",pros:["Excellent value for money","Comfortable and arm-friendly","Versatile teardrop shape","Great for improving players"],cons:["Brand less known in UK","Not as powerful as diamond models","Lighter construction compared to premium brands"],bestFor:"Improving intermediate players who want quality without paying top-tier prices."}
-];
-function getParam(name){return new URLSearchParams(window.location.search).get(name);}
-function renderReview(){
-  var slug=getParam("racket");
-  var r=rackets.find(function(x){return x.slug===slug;});
-  if(!r){
-    document.getElementById("reviewHero").innerHTML="<div class='not-found'>Racket not found. <a href='index.html'>Go back</a></div>";
-    return;
+const rackets = [
+  {
+    slug:"bullpadel-hack-03-hybrid",
+    name:"Hack 03 Hybrid",
+    brand:"Bullpadel",
+    level:"Advanced",
+    shape:"Diamond",
+    weight:"365g",
+    balance:"High",
+    core:"Multieva HR",
+    price:"249",
+    score:94,
+    power:91,
+    control:88,
+    touch:85,
+    badge:"BEST OVERALL",
+    img:"images/hack-03-hybrid.jpg",
+    affiliateUrl:"#",
+    verdict:"The Bullpadel Hack 03 Hybrid is one of the best all-round diamond rackets on the market right now. It delivers explosive power without sacrificing the control advanced players need, making it a go-to choice for competitive club players and semi-professionals alike.",
+    fullReview:[
+      "The Hack 03 Hybrid sits at the top of Bullpadel's performance range for good reason. Its diamond shape pushes the sweet spot towards the top of the frame, giving you serious firepower on smashes and volleys. Where many aggressive diamond rackets feel unforgiving, the Hack 03 Hybrid manages to retain a level of playability that lets you stay consistent under pressure.",
+      "Construction-wise, Bullpadel have used a 12K carbon fibre frame combined with their Multieva HR foam core. The 12K carbon weave is noticeably stiffer than standard carbon, which translates directly into more energy transfer on every strike. The Multieva HR core absorbs enough vibration to keep the feel comfortable, which is important if you play multiple sessions a week.",
+      "In play, the power ceiling is genuinely impressive. Hard drives from the back of the court carry real pace, and overhead smashes off the back wall have a satisfying crack to them. The balance point sits high, so you can feel the weight loading behind the ball on aggressive shots. The flip side is that quick exchanges at the net require slightly more wrist adjustment than a round or teardrop racket would demand.",
+      "Control is better than you might expect from a pure attacking frame. The string pattern offers decent dwell time, and the Multieva core stops the ball pinging off in a way that ruins placement. Players who transition up from a teardrop racket will likely adapt within a few sessions. Touch at the net is solid rather than exceptional, but for the style of play this racket is built for, it covers all the bases.",
+      "At around 365g, it sits on the heavier end of the spectrum. If you have any history of elbow or shoulder issues, it is worth getting a few sessions with it before committing. However, for physically fit advanced players looking to dominate from the back court and punish high balls, the Hack 03 Hybrid is about as good as the market offers at this price point."
+    ],
+    pros:["Explosive power from the sweet spot","Solid feel and controlled feedback","Premium 12K carbon construction","Versatile for attack and baseline defence"],
+    cons:["Demanding for beginners and improvers","Heavier feel can cause fatigue in long matches","Higher price point than mid-range options"],
+    bestFor:"Advanced and semi-professional players who want a powerful attacking diamond racket with enough control to stay consistent in longer rallies."
+  },
+  {
+    slug:"head-speed-motion",
+    name:"Speed Motion",
+    brand:"Head",
+    level:"Beginner",
+    shape:"Round",
+    weight:"355g",
+    balance:"Low",
+    core:"EVA Soft Foam",
+    price:"129",
+    score:81,
+    power:70,
+    control:88,
+    touch:90,
+    badge:"BEST FOR BEGINNERS",
+    img:"images/head-speed-motion.jpg",
+    affiliateUrl:"#",
+    verdict:"The Head Speed Motion is the ideal entry point for new padel players. Its round shape, soft core and low balance point make it forgiving and easy to control, helping beginners develop consistent technique without fighting the racket.",
+    fullReview:[
+      "Head have long been respected in padel for building rackets that feel accessible without feeling cheap, and the Speed Motion is a perfect example of that philosophy. Designed with beginners and recreational players in mind, it prioritises forgiveness, touch and ease of use over raw power.",
+      "The round shape is the defining characteristic here. A round head means the sweet spot is centred in the middle of the frame rather than pushed towards the top, so mishits still produce usable shots. For someone learning the game, this is enormous. You can focus on footwork and positioning without constantly worrying about whether your timing is perfect.",
+      "The EVA Soft Foam core plays a big role in the racket's character. Softer foam absorbs more energy, which gives you a cushioned, connected feeling when striking the ball. It also makes the racket easier on your arm, which matters for beginners who might be playing with less-than-perfect technique. The low balance point keeps the weight feeling centralised, making it quick to manoeuvre and comfortable to swing repeatedly.",
+      "On court, the Speed Motion excels in control and placement. Short game exchanges, lobs and defensive resets all feel natural. The touch at the net is excellent, and you can direct the ball with confidence even when you are still building consistency. Power is naturally limited compared to higher-end offensive rackets, but that is the trade-off with round shapes, and beginners genuinely do not need more firepower at this stage.",
+      "For the price, the Speed Motion represents outstanding value. Head's build quality ensures it will last through the hundreds of sessions a new player typically needs before upgrading. If you are just getting into padel or playing two to three times a week socially, this is the racket we would recommend without hesitation."
+    ],
+    pros:["Extremely forgiving round shape","Excellent touch and control","Soft EVA core is arm-friendly","Great value for money"],
+    cons:["Limited power for offensive play","Not suitable as you progress to intermediate level","Plain aesthetics compared to higher-end models"],
+    bestFor:"Complete beginners and recreational players who want a forgiving, arm-friendly racket to build their game on."
+  },
+  {
+    slug:"nox-at10-genius-12k",
+    name:"AT10 Genius 12K",
+    brand:"NOX",
+    level:"Advanced",
+    shape:"Diamond",
+    weight:"370g",
+    balance:"High",
+    core:"HR3 Foam",
+    price:"289",
+    score:92,
+    power:95,
+    control:80,
+    touch:78,
+    badge:"MOST POWERFUL",
+    img:"images/nox-at10.jpg",
+    affiliateUrl:"#",
+    verdict:"The NOX AT10 Genius 12K is built for players who want maximum aggression. Used by Agustin Tapia, one of the best players in the world, this racket is a weapon in the hands of any advanced player looking to dominate with pace and smash power.",
+    fullReview:[
+      "The AT10 Genius 12K is NOX's flagship racket and it carries the stamp of Agustin Tapia, the world number one who has played with NOX throughout his career. That association is not just marketing. The racket is genuinely designed around the demands of elite offensive padel, and it shows in every aspect of how it plays.",
+      "The 12K carbon frame is one of the stiffest in the market. Stiffer frames mean less energy is absorbed by the racket itself, so more is transferred into the ball. The result is a level of power on smashes and aggressive drives that very few rackets can match. The diamond shape pushes the sweet spot to the top third of the frame, so any ball taken above shoulder height becomes a genuine threat.",
+      "NOX have used their HR3 foam in the core, which is a medium-density compound that strikes a reasonable balance between power and feel. It is noticeably firmer than beginner-oriented foams, so the racket communicates well with the player about exactly where contact was made. This feedback is useful at the advanced level where fine-tuning your striking technique matters.",
+      "The trade-off is control and touch. At 370g with a high balance point, this is one of the most demanding rackets to play consistently. Defensive resets and delicate net exchanges require real precision, and players still developing their game will find the margin for error punishing. This is genuinely a racket for players who have advanced technique and want a weapon to amplify their existing skill.",
+      "In the right hands, the AT10 Genius 12K is devastating. If you play at an advanced level, train regularly and want to hit the ball harder than almost anything else on the market will let you, this is your racket. For anyone below that level, we would strongly recommend stepping down to a teardrop or a more forgiving diamond shape first."
+    ],
+    pros:["Best-in-class smash and drive power","12K carbon delivers exceptional stiffness","Used by world number one Agustin Tapia","Excellent feedback and feel at point of contact"],
+    cons:["Very demanding for non-advanced players","Low control ceiling on off-centre hits","Heavy and high-balance makes net game harder","Premium price"],
+    bestFor:"Advanced and professional-level players who prioritise attacking power and are comfortable sacrificing some control in exchange for maximum pace."
+  },
+  {
+    slug:"bullpadel-vertex-05",
+    name:"Vertex 05",
+    brand:"Bullpadel",
+    level:"Advanced",
+    shape:"Diamond",
+    weight:"360g",
+    balance:"High",
+    core:"Multieva HR",
+    price:"229",
+    score:89,
+    power:87,
+    control:85,
+    touch:83,
+    badge:"BEST VALUE ADVANCED",
+    img:"images/vertex-05.jpg",
+    affiliateUrl:"#",
+    verdict:"The Bullpadel Vertex 05 sits just below the Hack 03 Hybrid in the lineup but still delivers high-level offensive performance at a slightly more accessible price. It is one of the most complete diamond rackets for advanced club players who want power and control in equal measure.",
+    fullReview:[
+      "The Vertex range has been one of Bullpadel's most consistent performers for years, and the 05 version refines what was already an excellent formula. It occupies a sweet spot in the market: advanced enough to satisfy experienced players who demand performance, but not so uncompromising that it becomes a liability when things get difficult in a match.",
+      "Like the Hack 03 Hybrid, the Vertex 05 uses a carbon fibre frame with Multieva HR foam, but the construction tuning is slightly different. The Vertex 05 has been dialled back marginally in terms of pure stiffness, which gives it a fractionally more forgiving feel on off-centre contacts. For advanced players who are not quite at the elite level, this extra margin can make a real difference over the course of a match.",
+      "The diamond shape still delivers serious firepower. Overhead smashes feel loaded and powerful, and drives from the back of the court carry genuine pace. Where the Vertex 05 differentiates itself from pure attacking diamonds is in its control response. The frame geometry and core combination give you enough dwell time on the ball to redirect with accuracy, which is critical in the fast-paced exchanges at advanced club level.",
+      "Balance sits on the higher end, which keeps the aggressive character intact, but the 360g weight (compared to some heavier diamonds) means it is slightly easier to recover quickly between shots. Players who want to use the Vertex 05 as an all-court weapon rather than a pure back-court attacker will find it more accommodating than some of its rivals.",
+      "For the price, the Vertex 05 represents excellent value within the advanced segment. You are getting a genuine high-performance racket with Bullpadel's premium build quality for less than the flagship models from most competing brands. If the Hack 03 Hybrid is slightly out of budget, this is the natural alternative from the same manufacturer."
+    ],
+    pros:["Excellent power-to-control ratio for a diamond","Slightly more forgiving than pure attacking frames","Premium Bullpadel build quality","Good value within the advanced segment"],
+    cons:["Still demanding for intermediate players","High balance makes quick net exchanges harder","Heavier than teardrop alternatives"],
+    bestFor:"Advanced club players who want a diamond racket that delivers both offensive firepower and enough control to stay competitive in longer, tactical rallies."
+  },
+  {
+    slug:"babolat-technical-viper-3",
+    name:"Technical Viper 3.0",
+    brand:"Babolat",
+    level:"Intermediate",
+    shape:"Teardrop",
+    weight:"360g",
+    balance:"Medium",
+    core:"EVA High Memory",
+    price:"199",
+    score:87,
+    power:84,
+    control:87,
+    touch:86,
+    badge:"BEST ALL-ROUNDER",
+    img:"images/technical-viper3.0.jpg",
+    affiliateUrl:"#",
+    verdict:"The Babolat Technical Viper 3.0 is a brilliantly balanced teardrop racket that bridges the gap between control and power effortlessly. It is ideal for intermediate to advanced players who want a versatile all-court weapon without committing to the demands of a full diamond shape.",
+    fullReview:[
+      "Babolat have been producing rackets for over a century across tennis and padel, and the Technical Viper 3.0 is a strong example of what happens when that engineering experience meets modern padel demands. The teardrop shape is the defining design choice, sitting between the forgiving round and the aggressive diamond to offer a genuine compromise that suits a wide range of playing styles.",
+      "The frame uses Babolat's carbon fibre construction combined with their EVA High Memory core. The EVA High Memory compound is firmer than standard EVA, which gives the racket a lively, responsive feel. Balls come off the strings with good energy, which means you do not have to swing as hard to generate pace. At the same time, the memory properties of the foam help the frame return to shape quickly, which contributes to consistent performance shot after shot.",
+      "On court, the Technical Viper 3.0 shines in versatility. The teardrop balance point means the sweet spot is accessible whether you are driving from the back, defending under pressure or finishing at the net. Control is genuinely impressive for a racket with this level of power. You can place the ball with confidence, and the touch at the net is refined enough for advanced net play.",
+      "The 360g weight is well-distributed thanks to the medium balance, making it feel lighter than its actual mass. Players who have previously used round rackets and are looking to step up will find the transition to the Viper 3.0 smooth. The power increase is noticeable without being overwhelming, and the control does not drop off in the way that a pure diamond step-up sometimes can.",
+      "At around 199, the Technical Viper 3.0 is well-priced for a racket that competes with options at higher price points. Babolat's quality control is excellent, and the racket will hold up well over a full season of regular play. For intermediate players looking to push towards the advanced level, or advanced players who prioritise consistency and versatility over raw aggression, this is one of the best choices in the market."
+    ],
+    pros:["Outstanding versatility for all playing styles","Excellent balance of power and control","EVA High Memory core gives lively, consistent feel","Well-priced for its performance level"],
+    cons:["Not the top choice for pure power seekers","Touch is good but below specialist control rackets","Medium balance can feel less punishing on overhead smashes"],
+    bestFor:"Intermediate to advanced players who want a versatile, well-rounded teardrop racket that performs reliably in every area of the game."
+  },
+  {
+    slug:"adidas-metalbone-2026",
+    name:"Metalbone 2026",
+    brand:"Adidas",
+    level:"Advanced",
+    shape:"Diamond",
+    weight:"365g",
+    balance:"High",
+    core:"Hybrid EVA",
+    price:"269",
+    score:91,
+    power:93,
+    control:83,
+    touch:80,
+    badge:"PRO FAVOURITE",
+    img:"images/metalbone-carbon.jpg",
+    affiliateUrl:"#",
+    verdict:"The Adidas Metalbone 2026 is the flagship racket from Adidas Padel and lives up to its prestigious reputation. Used by elite professionals on the Premier Padel circuit, it combines brutal attacking power with the premium feel that serious players demand.",
+    fullReview:[
+      "The Metalbone is arguably the most recognisable racket in professional padel right now. Adidas have updated the 2026 version with refined aerodynamics, an updated frame profile and their latest Hybrid EVA core compound. The result is a racket that feels more dialled-in than its predecessors while maintaining the explosive character the Metalbone is known for.",
+      "The diamond shape and high balance point position this firmly in the attacking category. The sweet spot is concentrated in the top portion of the frame, and when you catch it cleanly on a smash or a high drive, the power output is genuinely frightening. The Hybrid EVA core is firmer than standard foam, which keeps energy loss to a minimum and gives a crisp, solid sensation at the point of contact.",
+      "Adidas have put serious engineering work into the aerodynamic profile of the Metalbone 2026. The frame cuts through the air more efficiently on overhead swings, which makes the already-powerful smash motion feel even more fluid. In practice, this means you can generate more racket head speed with the same effort, which amplifies the power ceiling further.",
+      "The trade-offs are predictable for a racket of this character. Control is competent but not the Metalbone's strong suit. Players who rely heavily on a precise net game or who play a defensive, counter-attacking style will find the racket less accommodating than a teardrop alternative. Touch is functional at the net but demands high-quality technique to get the best out of it.",
+      "The 2026 version also comes with Adidas's premium finish and the brand recognition that comes with the Metalbone name. At around 269, it sits in the upper tier of the market, but given the build quality and the professional-level performance, it is a price point that is hard to argue with for serious advanced players. If you train multiple times per week and are developing an aggressive, offensive game, the Metalbone 2026 should be on your shortlist."
+    ],
+    pros:["Devastating smash and drive power","Refined aerodynamics improve swing efficiency","Premium construction and professional-grade feel","Iconic Adidas Metalbone brand and design"],
+    cons:["Control-oriented players will find it unforgiving","High balance demands strong physical conditioning","Premium price tag","Net game requires refined technique"],
+    bestFor:"Advanced players with an aggressive, attacking game style who want the performance and prestige of one of padel's most iconic professional rackets."
+  },
+  {
+    slug:"oxdog-hyper-pro-2",
+    name:"Hyper Pro 2.0",
+    brand:"Oxdog",
+    level:"Intermediate",
+    shape:"Teardrop",
+    weight:"355g",
+    balance:"Medium-High",
+    core:"HybridFoam",
+    price:"179",
+    score:85,
+    power:82,
+    control:85,
+    touch:84,
+    badge:"BEST BUY",
+    img:"images/hyper-pro-2.0.jpg",
+    affiliateUrl:"#",
+    verdict:"The Oxdog Hyper Pro 2.0 punches well above its price tag. This Scandinavian brand brings serious padel expertise to a racket that delivers impressive performance at a mid-range price, making it one of the best value propositions in the current market.",
+    fullReview:[
+      "Oxdog might not have the same global marketing presence as Adidas or Babolat, but in Scandinavia and across the European padel community, they have built a strong reputation for producing technically sound rackets at honest prices. The Hyper Pro 2.0 is a compelling example of what the brand does well.",
+      "The teardrop shape sits at the heart of the racket's character. It is designed to offer offensive capability without the demands of a full diamond, which makes it well-suited to intermediate players pushing towards the advanced level or advanced players who prefer a more versatile frame over a pure attacking weapon. The medium-high balance point nudges the sweet spot slightly upward compared to a round racket, adding punch to overhead play without making the racket feel unwieldy.",
+      "Oxdog's HybridFoam core is one of the more interesting technical choices in this price bracket. It blends firmer and softer foam compounds in a layered construction designed to provide power on harder strikes while retaining feel and touch on softer, more controlled shots. In practice, this works well. The Hyper Pro 2.0 feels alive under the ball, responsive and communicative without being harsh.",
+      "Control is one of this racket's genuine strengths. The string pattern and core combination give you enough dwell time to redirect the ball accurately, and defensive shots from the back of the court feel stable and predictable. The touch at the net is above average for the price point, making it a strong choice for players who like to construct points through the net game.",
+      "At around 179, the Hyper Pro 2.0 represents outstanding value. Players at intermediate level looking for a meaningful upgrade from a beginner racket, or those who want a reliable second racket for training, will find it hard to beat at this price. Oxdog's build quality is solid, and the racket will comfortably handle the demands of regular club play over a full season."
+    ],
+    pros:["Excellent value for money","HybridFoam core balances power and touch well","Versatile teardrop suits a wide range of styles","Above-average control and net game feel"],
+    cons:["Less brand recognition than market leaders","Not a top choice for pure power players","Medium-high balance is a compromise, not a speciality"],
+    bestFor:"Intermediate players looking for a high-performing all-round teardrop racket at a mid-range price, or advanced players who want a versatile second racket without the premium cost."
   }
-  document.title=r.name+" Review - PadelRate";
-  var hero="<div class='review-hero'>";
-  hero+="<div class='review-img'><img src='"+r.img+"' alt='"+r.name+"'></div>";
-  hero+="<div class='review-info'>";
-  hero+="<div class='review-badge'>"+r.badge+"</div>";
-  hero+="<div class='review-name'>"+r.name+"</div>";
-  hero+="<div class='review-brand'>"+r.brand+" - "+r.level+"</div>";
-  hero+="<div class='score-big'>"+r.score+"</div>";
-  hero+="<div class='score-label'>Overall Score</div>";
-  hero+="<div class='stat-bars'>";
-  hero+="<div class='bar-row'><div class='bar-name'>Power</div><div class='bar-track'><div class='bar-fill' style='width:"+r.power+"%'></div></div><div class='bar-val'>"+r.power+"</div></div>";
-  hero+="<div class='bar-row'><div class='bar-name'>Control</div><div class='bar-track'><div class='bar-fill' style='width:"+r.control+"%'></div></div><div class='bar-val'>"+r.control+"</div></div>";
-  hero+="<div class='bar-row'><div class='bar-name'>Touch</div><div class='bar-track'><div class='bar-fill' style='width:"+r.touch+"%'></div></div><div class='bar-val'>"+r.touch+"</div></div>";
-  hero+="</div>";
-  hero+="<a class='buy-btn' href='"+r.affiliateUrl+"' target='_blank' rel='noopener'>Buy - from "+r.price+" &rarr;</a>";
-  hero+="</div></div>";
-  document.getElementById("reviewHero").innerHTML=hero;
-  var prosHtml=r.pros.map(function(p){return "<li>"+p+"</li>";}).join("");
-  var consHtml=r.cons.map(function(c){return "<li>"+c+"</li>";}).join("");
-  var body="<div class='review-body'>";
-  body+="<div>";
-  body+="<div class='review-section'><h2>Verdict</h2><p>"+r.verdict+"</p></div>";
-  body+="<div class='pros-cons'><div class='pros'><h3>PROS</h3><ul>"+prosHtml+"</ul></div><div class='cons'><h3>CONS</h3><ul>"+consHtml+"</ul></div></div>";
-  body+="<div class='review-section'><h2>Best For</h2><p>"+r.bestFor+"</p></div>";
-  body+="</div>";
-  body+="<div><div class='specs-box'><h3>Specifications</h3>";
-  body+="<div class='spec-row'><span class='spec-key'>Brand</span><span class='spec-val'>"+r.brand+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Shape</span><span class='spec-val'>"+r.shape+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Level</span><span class='spec-val'>"+r.level+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Weight</span><span class='spec-val'>"+r.weight+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Balance</span><span class='spec-val'>"+r.balance+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Core</span><span class='spec-val'>"+r.core+"</span></div>";
-  body+="<div class='spec-row'><span class='spec-key'>Price</span><span class='spec-val'>from "+r.price+"</span></div>";
-  body+="</div></div></div>";
-  document.getElementById("reviewBody").innerHTML=body;
+];
+
+const params = new URLSearchParams(window.location.search);
+const slug = params.get("racket");
+const racket = rackets.find(function(r){ return r.slug === slug; });
+
+if(!racket){
+  document.getElementById("reviewHero").innerHTML = "<div class=\"not-found\"><h2>Racket not found</h2><p>Go <a href=\"index.html\">back to all rackets</a>.</p></div>";
+} else {
+  document.title = racket.name + " Review - PadelRate";
+  document.querySelector("meta[name=description]").setAttribute("content","Read our full review of the " + racket.name + " by " + racket.brand + ". Scores, specs, pros and cons.");
+
+  const badgeHTML = racket.badge ? "<div class=\"review-badge\">" + racket.badge + "</div>" : "";
+  const imgSrc = racket.img ? racket.img : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='18' text-anchor='middle' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
+
+  document.getElementById("reviewHero").innerHTML =
+    "<div class=\"review-hero\">" +
+      "<div class=\"review-img\"><img src=\"" + imgSrc + "\" alt=\"" + racket.name + "\"></div>" +
+      "<div class=\"review-info\">" +
+        badgeHTML +
+        "<div class=\"review-name\">" + racket.name + "</div>" +
+        "<div class=\"review-brand\">" + racket.brand + " - " + racket.level + "</div>" +
+        "<div class=\"score-big\">" + racket.score + "</div>" +
+        "<div class=\"score-label\">Overall Score</div>" +
+        "<div class=\"stat-bars\">" +
+          "<div class=\"bar-row\"><div class=\"bar-name\">Power</div><div class=\"bar-track\"><div class=\"bar-fill\" style=\"width:" + racket.power + "%\"></div></div><div class=\"bar-val\">" + racket.power + "</div></div>" +
+          "<div class=\"bar-row\"><div class=\"bar-name\">Control</div><div class=\"bar-track\"><div class=\"bar-fill\" style=\"width:" + racket.control + "%\"></div></div><div class=\"bar-val\">" + racket.control + "</div></div>" +
+          "<div class=\"bar-row\"><div class=\"bar-name\">Touch</div><div class=\"bar-track\"><div class=\"bar-fill\" style=\"width:" + racket.touch + "%\"></div></div><div class=\"bar-val\">" + racket.touch + "</div></div>" +
+        "</div>" +
+        "<a class=\"buy-btn\" href=\"" + racket.affiliateUrl + "\" target=\"_blank\" rel=\"noopener\">Buy - from " + racket.price + " &#8594;</a>" +
+      "</div>" +
+    "</div>";
+
+  const fullReviewHTML = racket.fullReview
+    ? "<div class=\"review-section\"><h2>Full Review</h2><div class=\"full-review-text\">" +
+        racket.fullReview.map(function(p){ return "<p>" + p + "</p>"; }).join("") +
+      "</div></div>"
+    : "";
+
+  const prosHTML = racket.pros.map(function(p){ return "<li>" + p + "</li>"; }).join("");
+  const consHTML = racket.cons.map(function(c){ return "<li>" + c + "</li>"; }).join("");
+
+  document.getElementById("reviewBody").innerHTML =
+    "<div class=\"review-body\">" +
+      "<div class=\"review-main\">" +
+        "<div class=\"review-section\"><h2>Verdict</h2><p class=\"verdict-text\">" + racket.verdict + "</p></div>" +
+        fullReviewHTML +
+        "<div class=\"review-section\"><h2>Pros &amp; Cons</h2><div class=\"pros-cons\"><div class=\"pros\"><h3>Pros</h3><ul>" + prosHTML + "</ul></div><div class=\"cons\"><h3>Cons</h3><ul>" + consHTML + "</ul></div></div></div>" +
+        "<div class=\"review-section\"><h2>Best For</h2><p class=\"best-for-text\">" + racket.bestFor + "</p></div>" +
+      "</div>" +
+      "<div class=\"specs-box\">" +
+        "<h2>Specifications</h2>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Brand</span><span class=\"spec-val\">" + racket.brand + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Shape</span><span class=\"spec-val\">" + racket.shape + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Level</span><span class=\"spec-val\">" + racket.level + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Weight</span><span class=\"spec-val\">" + racket.weight + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Balance</span><span class=\"spec-val\">" + racket.balance + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Core</span><span class=\"spec-val\">" + racket.core + "</span></div>" +
+        "<div class=\"spec-row\"><span class=\"spec-label\">Price</span><span class=\"spec-val\">from " + racket.price + "</span></div>" +
+      "</div>" +
+    "</div>";
 }
-renderReview();
 </script>
+<footer style="text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px solid #1e1e1e">
+  PadelRate &copy; 2026 &mdash; Independent reviews. Some links may be affiliate links. <a href="about.html" style="color:#c8f135">About us</a>
+</footer>
 </body>
 </html>
