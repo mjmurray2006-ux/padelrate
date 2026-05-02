@@ -32,7 +32,7 @@ nav ul a:hover{color:#c8f135}
 .section{max-width:1200px;margin:0 auto;padding:50px 40px}
 .section-title{font-size:1.4rem;font-weight:800;margin-bottom:24px}
 .section-title span{color:#c8f135}
-.best-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:0}
+.best-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
 .best-card{background:#151515;border:1px solid #1e1e1e;border-radius:12px;padding:18px;cursor:pointer;transition:border-color .2s,transform .2s}
 .best-card:hover{border-color:#c8f135;transform:translateY(-2px)}
 .best-card-badge{font-size:.65rem;font-weight:800;color:#c8f135;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
@@ -47,8 +47,8 @@ nav ul a:hover{color:#c8f135}
 .racket-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
 .racket-card{background:#151515;border:1px solid #1e1e1e;border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s}
 .racket-card:hover{border-color:#c8f135;transform:translateY(-3px)}
-.card-img{background:#1a1a1a;display:flex;align-items:center;justify-content:center;height:200px;overflow:hidden}
-.card-img img{max-width:100%;max-height:180px;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.05)}
+.card-img{background:#fff;display:flex;align-items:center;justify-content:center;height:200px;overflow:hidden}
+.card-img img{max-width:100%;max-height:180px;object-fit:contain}
 .card-body{padding:16px}
 .card-badge{font-size:.65rem;font-weight:800;background:#c8f135;color:#000;padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:8px;text-transform:uppercase}
 .card-name{font-size:1.05rem;font-weight:800;margin-bottom:2px}
@@ -174,9 +174,7 @@ function renderBest(){
     return "<div class=\"best-card\" data-slug=\""+r.slug+"\"><div class=\"best-card-badge\">"+p.badge+"</div><div class=\"best-card-name\">"+r.name+"</div><div class=\"best-card-brand\">"+r.brand+"</div><div class=\"best-card-score\">"+r.score+"</div></div>";
   }).join("");
   grid.querySelectorAll(".best-card").forEach(function(c){
-    c.addEventListener("click",function(){
-      window.location.href="review.html?racket="+c.dataset.slug;
-    });
+    c.addEventListener("click",function(){window.location.href="review.html?racket="+c.dataset.slug;});
   });
 }
 
@@ -205,9 +203,7 @@ function renderGrid(list){
   if(list.length===0){grid.innerHTML="";none.style.display="block";}
   else{none.style.display="none";grid.innerHTML=list.map(cardHTML).join("");}
   grid.querySelectorAll(".racket-card").forEach(function(c){
-    c.addEventListener("click",function(){
-      window.location.href="review.html?racket="+c.dataset.slug;
-    });
+    c.addEventListener("click",function(){window.location.href="review.html?racket="+c.dataset.slug;});
   });
 }
 
