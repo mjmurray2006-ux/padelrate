@@ -314,10 +314,7 @@ if(!racket){
           "<div class=\"bar-row\"><div class=\"bar-name\">Control</div><div class=\"bar-track\"><div class=\"bar-fill\" style=\"width:" + racket.control + "%\"></div></div><div class=\"bar-val\">" + racket.control + "</div></div>" +
           "<div class=\"bar-row\"><div class=\"bar-name\">Touch</div><div class=\"bar-track\"><div class=\"bar-fill\" style=\"width:" + racket.touch + "%\"></div></div><div class=\"bar-val\">" + racket.touch + "</div></div>" +
         "</div>" +
-        "<a class=\"buy-btn\" href=\"" + racket.affiliateUrl + "\" target=\"_blank\" rel=\"noopener\">Buy - from " + racket.price + " &#8594;</a>" +
-      "</div>" +
-    "</div>";
-
+        "<a class=\"buy-btn\" href=\"" + racket.affiliateUrl + "\" target=\"_blank\" rel=\"noopener\">Buy - from &#163;" + racket.price + " &#8594;</a>"
   const fullReviewHTML = racket.fullReview
     ? "<div class=\"review-section\"><h2>Full Review</h2><div class=\"full-review-text\">" +
         racket.fullReview.map(function(p){ return "<p>" + p + "</p>"; }).join("") +
