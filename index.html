@@ -16,6 +16,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 .nav-search input::placeholder{color:#555}
 .nav-search input:focus{border-color:#c8f135}
 .nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 nav ul{list-style:none;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
 nav ul a{font-size:.9rem;color:#aaa;transition:color .2s}
 nav ul a:hover{color:#c8f135}
@@ -68,11 +73,16 @@ nav ul a:hover{color:#c8f135}
 .guide-banner p{color:#aaa;font-size:.9rem;max-width:500px}
 footer{text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px solid #1e1e1e;margin-top:20px}
 @media(max-width:768px){
-nav{padding:12px 20px}
-.hero{padding:50px 20px 40px}
-.section{padding:40px 20px}
-.racket-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
-.nav-search{order:3;max-width:100%;width:100%}
+  nav{padding:12px 20px}
+  .hamburger{display:flex}
+  #navMenu{display:none;width:100%;flex-direction:column;gap:0;order:4;border-top:1px solid #1e1e1e;margin-top:10px}
+  #navMenu.open{display:flex}
+  #navMenu li a{display:block;padding:12px 4px;color:#aaa;border-bottom:1px solid #1e1e1e;font-size:.95rem}
+  #navMenu li:last-child a{border-bottom:none}
+  .hero{padding:50px 20px 40px}
+  .section{padding:40px 20px}
+  .racket-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .nav-search{order:3;max-width:100%;width:100%}
 }
 </style>
 </head>
@@ -83,7 +93,10 @@ nav{padding:12px 20px}
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" id="navSearch" placeholder="Search rackets..." autocomplete="off">
   </div>
-  <ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navMenu">
     <li><a href="#rackets">Rackets</a></li>
     <li><a href="#best">Best For</a></li>
     <li><a href="guide.html">Buying Guide</a></li>
@@ -160,7 +173,7 @@ const rackets = [
 const bestPicks = [
   {badge:"BEST OVERALL",slug:"bullpadel-hack-03-hybrid"},
   {badge:"BEST FOR BEGINNERS",slug:"head-speed-motion"},
-  {badge:"BEST UNDER 200",slug:"oxdog-hyper-pro-2"},
+  {badge:"BEST UNDER £200",slug:"oxdog-hyper-pro-2"},
   {badge:"BEST FOR CONTROL",slug:"babolat-technical-viper-3"},
   {badge:"BEST FOR POWER",slug:"nox-at10-genius-12k"},
   {badge:"BEST MID-RANGE",slug:"bullpadel-vertex-05"}
@@ -181,7 +194,7 @@ function renderBest(){
 function cardHTML(r){
   const tags = r.tags.map(function(t){return "<span class=\"tag\">"+t+"</span>";}).join("");
   return "<div class=\"racket-card\" data-slug=\""+r.slug+"\" data-tags=\""+r.tags.join(" ")+"\" data-price=\""+r.price+"\" data-name=\""+r.name.toLowerCase()+"\" data-brand=\""+r.brand.toLowerCase()+"\">"+
-    "<div class=\"card-img\"><img src=\""+r.img+"\" alt=\""+r.name+"\" loading=\"lazy\"></div>"+
+    "<div class=\"card-img\"><img src=\""+r.img+"\" alt=\""+r.name+"\" loading=\"lazy\" onerror=\"this.parentElement.style.background='#1a1a1a'\"></div>"+
     "<div class=\"card-body\">"+
       "<span class=\"card-badge\">"+r.badge+"</span>"+
       "<div class=\"card-name\">"+r.name+"</div>"+
@@ -255,6 +268,19 @@ document.getElementById("budgetFilters").addEventListener("click",function(e){
 document.getElementById("navSearch").addEventListener("input",function(e){
   searchTerm=e.target.value.toLowerCase().trim();
   applyFilters();
+});
+
+// Hamburger menu
+document.getElementById("hamburger").addEventListener("click",function(){
+  this.classList.toggle("open");
+  document.getElementById("navMenu").classList.toggle("open");
+});
+
+document.querySelectorAll("#navMenu a").forEach(function(link){
+  link.addEventListener("click",function(){
+    document.getElementById("hamburger").classList.remove("open");
+    document.getElementById("navMenu").classList.remove("open");
+  });
 });
 
 renderBest();
