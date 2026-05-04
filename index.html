@@ -30,10 +30,12 @@ nav ul a:hover{color:#c8f135}
 .hero h1 span{color:#c8f135}
 .hero p{color:#aaa;font-size:1.05rem;line-height:1.7;max-width:600px;margin:0 auto 28px}
 .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:#c8f135;color:#000;padding:13px 28px;border-radius:8px;font-weight:800;font-size:.95rem;transition:opacity .2s;display:inline-block}
+.btn-primary{background:#c8f135;color:#000;padding:13px 28px;border-radius:8px;font-weight:800;font-size:.95rem;transition:opacity .2s;display:inline-block;cursor:pointer;border:none}
 .btn-primary:hover{opacity:.85}
 .btn-secondary{background:transparent;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;font-size:.95rem;border:1px solid #333;transition:border-color .2s;display:inline-block}
 .btn-secondary:hover{border-color:#c8f135;color:#c8f135}
+.btn-ghost{background:transparent;border:1px solid #333;color:#aaa;padding:10px 20px;border-radius:8px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:#c8f135;color:#c8f135}
 .section{max-width:1200px;margin:0 auto;padding:50px 40px}
 .section-title{font-size:1.4rem;font-weight:800;margin-bottom:24px}
 .section-title span{color:#c8f135}
@@ -50,8 +52,12 @@ nav ul a:hover{color:#c8f135}
 .filter-btn{background:transparent;border:1px solid #2a2a2a;color:#aaa;padding:7px 16px;border-radius:20px;cursor:pointer;font-size:.85rem;transition:all .2s;white-space:nowrap}
 .filter-btn.active,.filter-btn:hover{background:#c8f135;color:#000;border-color:#c8f135;font-weight:700}
 .racket-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
-.racket-card{background:#151515;border:1px solid #1e1e1e;border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s}
+.racket-card{background:#151515;border:1px solid #1e1e1e;border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s;position:relative}
 .racket-card:hover{border-color:#c8f135;transform:translateY(-3px)}
+.racket-card.selected-compare{border-color:#c8f135;box-shadow:0 0 0 2px #c8f135}
+.compare-check{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#555;cursor:pointer;transition:all .2s;z-index:2;font-weight:800}
+.compare-check:hover{border-color:#c8f135;color:#c8f135}
+.compare-check.checked{background:#c8f135;border-color:#c8f135;color:#000}
 .card-img{background:#fff;display:flex;align-items:center;justify-content:center;height:200px;overflow:hidden}
 .card-img img{max-width:100%;max-height:180px;object-fit:contain}
 .card-body{padding:16px}
@@ -72,6 +78,76 @@ nav ul a:hover{color:#c8f135}
 .guide-banner h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
 .guide-banner p{color:#aaa;font-size:.9rem;max-width:500px}
 footer{text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px solid #1e1e1e;margin-top:20px}
+
+/* QUIZ BANNER */
+.quiz-banner{background:linear-gradient(135deg,#0f1a00 0%,#1a2a05 100%);border:1px solid #2a3a10;border-radius:16px;padding:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.quiz-banner h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.quiz-banner p{color:#aaa;font-size:.9rem;max-width:500px}
+
+/* MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+
+/* QUIZ */
+.quiz-box{background:#151515;border:1px solid #2a2a2a;border-radius:20px;padding:36px;max-width:520px;width:100%;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:#555;font-size:1.5rem;cursor:pointer;line-height:1}
+.modal-close:hover{color:#fff}
+.quiz-progress{display:flex;gap:6px;margin-bottom:24px}
+.quiz-dot{height:4px;flex:1;background:#2a2a2a;border-radius:2px;transition:background .3s}
+.quiz-dot.done{background:#c8f135}
+.quiz-step{display:none}
+.quiz-step.active{display:block}
+.quiz-q{font-size:1.15rem;font-weight:800;margin-bottom:20px}
+.quiz-q span{color:#c8f135}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-opt{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:14px 18px;cursor:pointer;font-size:.95rem;color:#ccc;transition:all .2s;text-align:left;width:100%}
+.quiz-opt:hover{border-color:#c8f135;color:#fff;background:#1e1e1e}
+.quiz-result{display:none}
+.quiz-result.active{display:block}
+.quiz-result-label{color:#555;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:12px}
+.quiz-result-badge{background:#c8f135;color:#000;font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:10px}
+.quiz-result-score{font-size:2.8rem;font-weight:900;color:#c8f135;line-height:1;margin-bottom:4px}
+.quiz-result-name{font-size:1.4rem;font-weight:900;margin-bottom:4px}
+.quiz-result-brand{color:#aaa;font-size:.85rem;margin-bottom:14px}
+.quiz-result-why{color:#ccc;font-size:.9rem;line-height:1.65;margin-bottom:20px;background:#1a1a1a;border-radius:10px;padding:14px}
+.quiz-result-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* COMPARE BAR */
+.compare-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #2a2a2a;padding:14px 40px;display:none;justify-content:space-between;align-items:center;gap:16px;z-index:50;flex-wrap:wrap}
+.compare-bar.visible{display:flex}
+.compare-slots{display:flex;gap:10px;flex-wrap:wrap}
+.compare-slot{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:8px 14px;font-size:.85rem;display:flex;align-items:center;gap:8px}
+.compare-slot-name{font-weight:700}
+.compare-slot-remove{background:none;border:none;color:#555;cursor:pointer;font-size:1rem;line-height:1;padding:0 2px}
+.compare-slot-remove:hover{color:#e05555}
+.compare-bar-hint{color:#555;font-size:.8rem}
+.compare-bar-actions{display:flex;gap:10px;align-items:center}
+
+/* COMPARE MODAL */
+.compare-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow-y:auto;padding:40px 20px}
+.compare-modal-overlay.open{display:block}
+.compare-inner{max-width:860px;margin:0 auto}
+.compare-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.compare-header h2{font-size:1.4rem;font-weight:800}
+.compare-close-btn{background:none;border:1px solid #333;color:#aaa;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.85rem}
+.compare-close-btn:hover{border-color:#c8f135;color:#c8f135}
+.compare-grid{display:grid;grid-template-columns:160px 1fr 1fr;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden}
+.compare-label-col,.compare-racket-col{display:flex;flex-direction:column}
+.compare-racket-col{border-left:1px solid #1e1e1e}
+.compare-cell{padding:13px 16px;border-bottom:1px solid #1e1e1e;font-size:.875rem;display:flex;align-items:center;min-height:52px}
+.compare-label-col .compare-cell{color:#555;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700;background:#0e0e0e}
+.compare-racket-col .compare-cell{color:#ccc;font-weight:500}
+.compare-racket-col .compare-cell.winner{color:#c8f135;font-weight:800}
+.compare-racket-header{padding:18px 16px;background:#1a1a1a;border-bottom:1px solid #2a2a2a}
+.crh-badge{font-size:.6rem;font-weight:800;background:#c8f135;color:#000;padding:2px 7px;border-radius:3px;display:inline-block;margin-bottom:6px}
+.crh-name{font-size:1rem;font-weight:800}
+.crh-brand{font-size:.78rem;color:#666;margin-top:2px}
+.bar-mini{height:5px;background:#2a2a2a;border-radius:3px;overflow:hidden;margin-top:5px;width:100%}
+.bar-mini-fill{height:100%;background:#c8f135;border-radius:3px}
+.compare-verdict{background:#0f1a00;border:1px solid #2a3a10;border-radius:12px;padding:18px 20px;margin-top:18px;font-size:.9rem;color:#ccc;line-height:1.7}
+.compare-verdict strong{color:#c8f135}
+.compare-cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+
 @media(max-width:768px){
   nav{padding:12px 20px}
   .hamburger{display:flex}
@@ -83,6 +159,10 @@ footer{text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px 
   .section{padding:40px 20px}
   .racket-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
   .nav-search{order:3;max-width:100%;width:100%}
+  .compare-bar{padding:12px 20px}
+  .compare-grid{grid-template-columns:100px 1fr 1fr}
+  .compare-cell{padding:10px 10px;font-size:.78rem}
+  .quiz-box{padding:24px}
 }
 </style>
 </head>
@@ -119,8 +199,20 @@ footer{text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px 
   <div class="best-grid" id="bestGrid"></div>
 </div>
 
+<!-- QUIZ BANNER -->
+<div class="section" style="padding-top:0">
+  <div class="quiz-banner">
+    <div>
+      <h3>&#127914; Not sure which racket suits you?</h3>
+      <p>Answer 3 quick questions and we'll recommend the perfect racket for your level, style and budget.</p>
+    </div>
+    <button class="btn-primary" id="openQuiz" style="white-space:nowrap">Find My Racket &#8594;</button>
+  </div>
+</div>
+
 <div class="section" id="rackets">
   <div class="section-title">All <span>Rackets</span></div>
+  <div style="color:#555;font-size:.8rem;margin-bottom:16px">Tip: click the &#10003; on any two cards to compare them side by side</div>
   <div class="filters">
     <span class="filter-label">Level:</span>
     <div class="filter-group" id="levelFilters">
@@ -159,30 +251,108 @@ footer{text-align:center;padding:30px;color:#555;font-size:.8rem;border-top:1px 
   PadelRate &copy; 2026 &mdash; Independent reviews. Some links may be affiliate links. <a href="about.html" style="color:#c8f135">About us</a>
 </footer>
 
+<!-- COMPARE BAR -->
+<div class="compare-bar" id="compareBar">
+  <div class="compare-slots" id="compareSlots"></div>
+  <div class="compare-bar-actions">
+    <span class="compare-bar-hint" id="compareHint">Pick one more to compare</span>
+    <button class="btn-primary" id="openCompareBtn" style="display:none">Compare Now</button>
+    <button class="btn-ghost" id="clearCompare">Clear</button>
+  </div>
+</div>
+
+<!-- QUIZ MODAL -->
+<div class="modal-overlay" id="quizModal">
+  <div class="quiz-box">
+    <button class="modal-close" id="closeQuiz">&times;</button>
+    <div class="quiz-progress">
+      <div class="quiz-dot" id="dot0"></div>
+      <div class="quiz-dot" id="dot1"></div>
+      <div class="quiz-dot" id="dot2"></div>
+    </div>
+    <div class="quiz-step active" id="step0">
+      <div class="quiz-q">What's your <span>experience level</span>?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-step="0" data-val="beginner">&#127331; Just starting out — less than a year</button>
+        <button class="quiz-opt" data-step="0" data-val="intermediate">&#127332; Getting there — 1 to 3 years playing</button>
+        <button class="quiz-opt" data-step="0" data-val="advanced">&#127333; Experienced club player — 3+ years</button>
+      </div>
+    </div>
+    <div class="quiz-step" id="step1">
+      <div class="quiz-q">What's your <span>playing style</span>?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-step="1" data-val="control">&#127919; I like to place the ball and build rallies</button>
+        <button class="quiz-opt" data-step="1" data-val="power">&#128293; I want to hit hard and finish points fast</button>
+        <button class="quiz-opt" data-step="1" data-val="allround">&#9878;&#65039; A bit of both — I play all-court</button>
+      </div>
+    </div>
+    <div class="quiz-step" id="step2">
+      <div class="quiz-q">What's your <span>budget</span>?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-step="2" data-val="under150">&#128176; Under &#163;150</button>
+        <button class="quiz-opt" data-step="2" data-val="under200">&#128179; &#163;150 to &#163;200</button>
+        <button class="quiz-opt" data-step="2" data-val="over200">&#128181; &#163;200+ — I want the best</button>
+      </div>
+    </div>
+    <div class="quiz-result" id="quizResult">
+      <div class="quiz-result-label">Our recommendation for you</div>
+      <div class="quiz-result-badge" id="qrBadge"></div>
+      <div class="quiz-result-score" id="qrScore"></div>
+      <div style="color:#aaa;font-size:.75rem;margin-bottom:10px">Overall Score</div>
+      <div class="quiz-result-name" id="qrName"></div>
+      <div class="quiz-result-brand" id="qrBrand"></div>
+      <div class="quiz-result-why" id="qrWhy"></div>
+      <div class="quiz-result-actions">
+        <a class="btn-primary" id="qrLink" href="#">Read Full Review &#8594;</a>
+        <button class="btn-ghost" id="retakeQuiz">Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="compare-modal-overlay" id="compareModal">
+  <div class="compare-inner">
+    <div class="compare-header">
+      <h2>Side-by-Side <span style="color:#c8f135">Comparison</span></h2>
+      <button class="compare-close-btn" id="closeCompareModal">Close &#10005;</button>
+    </div>
+    <div id="compareContent"></div>
+  </div>
+</div>
+
 <script>
-const rackets = [
-  {slug:"bullpadel-hack-03-hybrid",name:"Hack 03 Hybrid",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:249,score:94,power:91,control:88,touch:85,badge:"BEST OVERALL",img:"images/hack-03-hybrid.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"]},
-  {slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"Beginner",shape:"Round",price:129,score:81,power:70,control:88,touch:90,badge:"BEST FOR BEGINNERS",img:"images/head-speed-motion.jpg",affiliateUrl:"#",tags:["beginner","intermediate","control","round"]},
-  {slug:"nox-at10-genius-12k",name:"AT10 Genius 12K",brand:"NOX",level:"Advanced",shape:"Diamond",price:289,score:92,power:95,control:80,touch:78,badge:"MOST POWERFUL",img:"images/nox-at10.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"]},
-  {slug:"bullpadel-vertex-05",name:"Vertex 05",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:229,score:89,power:87,control:85,touch:83,badge:"BEST VALUE ADVANCED",img:"images/vertex-05.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"]},
-  {slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"Intermediate",shape:"Teardrop",price:199,score:87,power:84,control:87,touch:86,badge:"BEST ALL-ROUNDER",img:"images/technical-viper3.0.jpg",affiliateUrl:"#",tags:["intermediate","advanced","control","teardrop"]},
-  {slug:"adidas-metalbone-2026",name:"Metalbone 2026",brand:"Adidas",level:"Advanced",shape:"Diamond",price:269,score:91,power:93,control:83,touch:80,badge:"PRO FAVOURITE",img:"images/metalbone-carbon.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"]},
-  {slug:"oxdog-hyper-pro-2",name:"Hyper Pro 2.0",brand:"Oxdog",level:"Intermediate",shape:"Teardrop",price:179,score:85,power:82,control:85,touch:84,badge:"BEST BUY",img:"images/hyper-pro-2.0.jpg",affiliateUrl:"#",tags:["intermediate","control","teardrop"]}
+var rackets=[
+  {slug:"bullpadel-hack-03-hybrid",name:"Hack 03 Hybrid",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:249,score:94,power:91,control:88,touch:85,badge:"BEST OVERALL",img:"images/hack-03-hybrid.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"],
+   quizWhy:"A premium attacking diamond that delivers explosive power while keeping enough control for competitive club play. Ideal for experienced players who want to dominate from the back court."},
+  {slug:"head-speed-motion",name:"Speed Motion",brand:"Head",level:"Beginner",shape:"Round",price:129,score:81,power:70,control:88,touch:90,badge:"BEST FOR BEGINNERS",img:"images/head-speed-motion.jpg",affiliateUrl:"#",tags:["beginner","intermediate","control","round"],
+   quizWhy:"The most forgiving racket in our lineup. Its round shape and soft core make it easy to control and gentle on the arm — perfect for building your game from scratch."},
+  {slug:"nox-at10-genius-12k",name:"AT10 Genius 12K",brand:"NOX",level:"Advanced",shape:"Diamond",price:289,score:92,power:95,control:80,touch:78,badge:"MOST POWERFUL",img:"images/nox-at10.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"],
+   quizWhy:"The most powerful racket we have tested. Used by world number one Agustin Tapia, this is a weapon built purely for aggressive, attacking padel."},
+  {slug:"bullpadel-vertex-05",name:"Vertex 05",brand:"Bullpadel",level:"Advanced",shape:"Diamond",price:229,score:89,power:87,control:85,touch:83,badge:"BEST VALUE ADVANCED",img:"images/vertex-05.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"],
+   quizWhy:"An excellent advanced diamond that balances power and control better than most at this price. Great value within the premium segment."},
+  {slug:"babolat-technical-viper-3",name:"Technical Viper 3.0",brand:"Babolat",level:"Intermediate",shape:"Teardrop",price:199,score:87,power:84,control:87,touch:86,badge:"BEST ALL-ROUNDER",img:"images/technical-viper3.0.jpg",affiliateUrl:"#",tags:["intermediate","advanced","control","teardrop"],
+   quizWhy:"The best all-round racket in our reviews. Its teardrop shape gives a perfect mix of power and control, making it ideal for players who like to play all-court."},
+  {slug:"adidas-metalbone-2026",name:"Metalbone 2026",brand:"Adidas",level:"Advanced",shape:"Diamond",price:269,score:91,power:93,control:83,touch:80,badge:"PRO FAVOURITE",img:"images/metalbone-carbon.jpg",affiliateUrl:"#",tags:["advanced","power","diamond"],
+   quizWhy:"One of the most iconic rackets in professional padel. If budget is not a concern and you want pro-level attacking power, this is the one."},
+  {slug:"oxdog-hyper-pro-2",name:"Hyper Pro 2.0",brand:"Oxdog",level:"Intermediate",shape:"Teardrop",price:179,score:85,power:82,control:85,touch:84,badge:"BEST BUY",img:"images/hyper-pro-2.0.jpg",affiliateUrl:"#",tags:["intermediate","control","teardrop"],
+   quizWhy:"Outstanding value for money. This teardrop delivers impressive performance at a mid-range price — the smart buy for intermediate players who want more without overspending."}
 ];
 
-const bestPicks = [
+var bestPicks=[
   {badge:"BEST OVERALL",slug:"bullpadel-hack-03-hybrid"},
   {badge:"BEST FOR BEGINNERS",slug:"head-speed-motion"},
-  {badge:"BEST UNDER £200",slug:"oxdog-hyper-pro-2"},
+  {badge:"BEST UNDER \u00a3200",slug:"oxdog-hyper-pro-2"},
   {badge:"BEST FOR CONTROL",slug:"babolat-technical-viper-3"},
   {badge:"BEST FOR POWER",slug:"nox-at10-genius-12k"},
   {badge:"BEST MID-RANGE",slug:"bullpadel-vertex-05"}
 ];
 
+// ── BEST PICKS ──
 function renderBest(){
-  const grid = document.getElementById("bestGrid");
-  grid.innerHTML = bestPicks.map(function(p){
-    const r = rackets.find(function(x){return x.slug===p.slug;});
+  var grid=document.getElementById("bestGrid");
+  grid.innerHTML=bestPicks.map(function(p){
+    var r=rackets.find(function(x){return x.slug===p.slug;});
     if(!r) return "";
     return "<div class=\"best-card\" data-slug=\""+r.slug+"\"><div class=\"best-card-badge\">"+p.badge+"</div><div class=\"best-card-name\">"+r.name+"</div><div class=\"best-card-brand\">"+r.brand+"</div><div class=\"best-card-score\">"+r.score+"</div></div>";
   }).join("");
@@ -191,9 +361,13 @@ function renderBest(){
   });
 }
 
+// ── CARDS ──
+var compareSelection=[];
+
 function cardHTML(r){
-  const tags = r.tags.map(function(t){return "<span class=\"tag\">"+t+"</span>";}).join("");
-  return "<div class=\"racket-card\" data-slug=\""+r.slug+"\" data-tags=\""+r.tags.join(" ")+"\" data-price=\""+r.price+"\" data-name=\""+r.name.toLowerCase()+"\" data-brand=\""+r.brand.toLowerCase()+"\">"+
+  var tags=r.tags.map(function(t){return "<span class=\"tag\">"+t+"</span>";}).join("");
+  return "<div class=\"racket-card\" data-slug=\""+r.slug+"\">"+
+    "<div class=\"compare-check\" data-slug=\""+r.slug+"\" title=\"Compare\">&#10003;</div>"+
     "<div class=\"card-img\"><img src=\""+r.img+"\" alt=\""+r.name+"\" loading=\"lazy\" onerror=\"this.parentElement.style.background='#1a1a1a'\"></div>"+
     "<div class=\"card-body\">"+
       "<span class=\"card-badge\">"+r.badge+"</span>"+
@@ -211,71 +385,226 @@ function cardHTML(r){
 }
 
 function renderGrid(list){
-  const grid = document.getElementById("racketGrid");
-  const none = document.getElementById("noResults");
-  if(list.length===0){grid.innerHTML="";none.style.display="block";}
-  else{none.style.display="none";grid.innerHTML=list.map(cardHTML).join("");}
+  var grid=document.getElementById("racketGrid");
+  var none=document.getElementById("noResults");
+  if(list.length===0){grid.innerHTML="";none.style.display="block";return;}
+  none.style.display="none";
+  grid.innerHTML=list.map(cardHTML).join("");
+  // restore compare ticks
+  compareSelection.forEach(function(slug){
+    var chk=grid.querySelector(".compare-check[data-slug=\""+slug+"\"]");
+    if(chk){chk.classList.add("checked");chk.closest(".racket-card").classList.add("selected-compare");}
+  });
   grid.querySelectorAll(".racket-card").forEach(function(c){
-    c.addEventListener("click",function(){window.location.href="review.html?racket="+c.dataset.slug;});
+    c.addEventListener("click",function(e){
+      if(e.target.closest(".compare-check")) return;
+      window.location.href="review.html?racket="+c.dataset.slug;
+    });
+  });
+  grid.querySelectorAll(".compare-check").forEach(function(btn){
+    btn.addEventListener("click",function(e){e.stopPropagation();toggleCompare(btn.dataset.slug);});
   });
 }
 
-let activeLevel="all";
-let activeStyle="";
-let activeBudget="";
-let searchTerm="";
-
+// ── FILTERS ──
+var activeLevel="all",activeStyle="",activeBudget="",searchTerm="";
 function applyFilters(){
-  let filtered = rackets.filter(function(r){
-    const tags = r.tags;
-    const levelOk = activeLevel==="all" || tags.includes(activeLevel);
-    const styleOk = activeStyle==="" || tags.includes(activeStyle);
-    const budgetOk = activeBudget==="" ||
-      (activeBudget==="under150" && r.price<150) ||
-      (activeBudget==="under200" && r.price<200) ||
-      (activeBudget==="over200" && r.price>=200);
-    const searchOk = searchTerm==="" || r.name.toLowerCase().includes(searchTerm) || r.brand.toLowerCase().includes(searchTerm);
-    return levelOk && styleOk && budgetOk && searchOk;
+  var filtered=rackets.filter(function(r){
+    var tags=r.tags;
+    var levelOk=activeLevel==="all"||tags.includes(activeLevel);
+    var styleOk=activeStyle===""||tags.includes(activeStyle);
+    var budgetOk=activeBudget===""||
+      (activeBudget==="under150"&&r.price<150)||
+      (activeBudget==="under200"&&r.price<200)||
+      (activeBudget==="over200"&&r.price>=200);
+    var searchOk=searchTerm===""||r.name.toLowerCase().includes(searchTerm)||r.brand.toLowerCase().includes(searchTerm);
+    return levelOk&&styleOk&&budgetOk&&searchOk;
   });
   renderGrid(filtered);
 }
-
 document.getElementById("levelFilters").addEventListener("click",function(e){
-  if(e.target.classList.contains("filter-btn")){
-    document.querySelectorAll("#levelFilters .filter-btn").forEach(function(b){b.classList.remove("active");});
-    e.target.classList.add("active");
-    activeLevel=e.target.dataset.filter;
-    applyFilters();
-  }
+  if(!e.target.classList.contains("filter-btn")) return;
+  document.querySelectorAll("#levelFilters .filter-btn").forEach(function(b){b.classList.remove("active");});
+  e.target.classList.add("active");activeLevel=e.target.dataset.filter;applyFilters();
 });
-
 document.getElementById("styleFilters").addEventListener("click",function(e){
-  if(e.target.classList.contains("filter-btn")){
-    if(e.target.classList.contains("active")){e.target.classList.remove("active");activeStyle="";}
-    else{document.querySelectorAll("#styleFilters .filter-btn").forEach(function(b){b.classList.remove("active");});e.target.classList.add("active");activeStyle=e.target.dataset.filter;}
-    applyFilters();
-  }
-});
-
-document.getElementById("budgetFilters").addEventListener("click",function(e){
-  if(e.target.classList.contains("filter-btn")){
-    if(e.target.classList.contains("active")){e.target.classList.remove("active");activeBudget="";}
-    else{document.querySelectorAll("#budgetFilters .filter-btn").forEach(function(b){b.classList.remove("active");});e.target.classList.add("active");activeBudget=e.target.dataset.filter;}
-    applyFilters();
-  }
-});
-
-document.getElementById("navSearch").addEventListener("input",function(e){
-  searchTerm=e.target.value.toLowerCase().trim();
+  if(!e.target.classList.contains("filter-btn")) return;
+  if(e.target.classList.contains("active")){e.target.classList.remove("active");activeStyle="";}
+  else{document.querySelectorAll("#styleFilters .filter-btn").forEach(function(b){b.classList.remove("active");});e.target.classList.add("active");activeStyle=e.target.dataset.filter;}
   applyFilters();
 });
+document.getElementById("budgetFilters").addEventListener("click",function(e){
+  if(!e.target.classList.contains("filter-btn")) return;
+  if(e.target.classList.contains("active")){e.target.classList.remove("active");activeBudget="";}
+  else{document.querySelectorAll("#budgetFilters .filter-btn").forEach(function(b){b.classList.remove("active");});e.target.classList.add("active");activeBudget=e.target.dataset.filter;}
+  applyFilters();
+});
+document.getElementById("navSearch").addEventListener("input",function(e){
+  searchTerm=e.target.value.toLowerCase().trim();applyFilters();
+});
 
-// Hamburger menu
+// ── COMPARE ──
+function toggleCompare(slug){
+  var idx=compareSelection.indexOf(slug);
+  if(idx>-1){compareSelection.splice(idx,1);}
+  else{
+    if(compareSelection.length>=2){alert("You can only compare 2 rackets at a time. Remove one first.");return;}
+    compareSelection.push(slug);
+  }
+  updateCompareBar();
+  applyFilters();
+}
+
+function updateCompareBar(){
+  var bar=document.getElementById("compareBar");
+  var slots=document.getElementById("compareSlots");
+  var hint=document.getElementById("compareHint");
+  var btn=document.getElementById("openCompareBtn");
+  if(compareSelection.length===0){bar.classList.remove("visible");return;}
+  bar.classList.add("visible");
+  slots.innerHTML=compareSelection.map(function(slug){
+    var r=rackets.find(function(x){return x.slug===slug;});
+    return "<div class=\"compare-slot\"><span class=\"compare-slot-name\">"+r.name+"</span><button class=\"compare-slot-remove\" data-slug=\""+slug+"\">&times;</button></div>";
+  }).join("");
+  slots.querySelectorAll(".compare-slot-remove").forEach(function(b){
+    b.addEventListener("click",function(){toggleCompare(b.dataset.slug);});
+  });
+  if(compareSelection.length===1){hint.style.display="";btn.style.display="none";}
+  else{hint.style.display="none";btn.style.display="";}
+}
+
+document.getElementById("openCompareBtn").addEventListener("click",function(){
+  var r1=rackets.find(function(x){return x.slug===compareSelection[0];});
+  var r2=rackets.find(function(x){return x.slug===compareSelection[1];});
+  var rows=[
+    {label:"Brand",key:"brand"},
+    {label:"Level",key:"level"},
+    {label:"Shape",key:"shape"},
+    {label:"Price",key:"price",pound:true},
+    {label:"Overall",key:"score",bar:true},
+    {label:"Power",key:"power",bar:true},
+    {label:"Control",key:"control",bar:true},
+    {label:"Touch",key:"touch",bar:true}
+  ];
+  function colHTML(r,other){
+    return "<div class=\"compare-racket-col\">"+
+      "<div class=\"compare-racket-header\"><div class=\"crh-badge\">"+r.badge+"</div><div class=\"crh-name\">"+r.name+"</div><div class=\"crh-brand\">"+r.brand+"</div></div>"+
+      rows.map(function(row){
+        var val=r[row.key];
+        var isWinner=row.bar&&val>other[row.key];
+        var content=row.bar
+          ?"<div><span style=\"font-size:1.05rem;font-weight:900\">"+val+"</span><div class=\"bar-mini\"><div class=\"bar-mini-fill\" style=\"width:"+val+"%\"></div></div></div>"
+          :(row.pound?"\u00a3":"")+val;
+        return "<div class=\"compare-cell"+(isWinner?" winner":"")+"\">"+content+"</div>";
+      }).join("")+
+    "</div>";
+  }
+  var keys=["score","power","control","touch"];
+  var w1=0,w2=0;
+  keys.forEach(function(k){if(r1[k]>r2[k])w1++;else if(r2[k]>r1[k])w2++;});
+  var winner=w1>w2?r1:(w2>w1?r2:null);
+  var verdict=winner
+    ?"<strong>"+winner.name+"</strong> wins overall with better scores across more categories. "
+    :"Both rackets are very evenly matched overall. ";
+  verdict+="The <strong>"+r1.name+"</strong> leads on control ("+r1.control+" vs "+r2.control+") while the <strong>"+r2.name+"</strong> edges it on power ("+r2.power+" vs "+r1.power+").";
+
+  document.getElementById("compareContent").innerHTML=
+    "<div class=\"compare-grid\">"+
+      "<div class=\"compare-label-col\">"+
+        "<div class=\"compare-cell\" style=\"background:#111;border-bottom:1px solid #2a2a2a;min-height:74px\"></div>"+
+        rows.map(function(row){return "<div class=\"compare-cell\">"+row.label+"</div>";}).join("")+
+      "</div>"+
+      colHTML(r1,r2)+
+      colHTML(r2,r1)+
+    "</div>"+
+    "<div class=\"compare-verdict\">"+verdict+"</div>"+
+    "<div class=\"compare-cta\">"+
+      "<a class=\"btn-primary\" href=\"review.html?racket="+r1.slug+"\">"+r1.name+" Review</a>"+
+      "<a class=\"btn-secondary\" href=\"review.html?racket="+r2.slug+"\">"+r2.name+" Review</a>"+
+    "</div>";
+  document.getElementById("compareModal").classList.add("open");
+  document.body.style.overflow="hidden";
+});
+
+document.getElementById("closeCompareModal").addEventListener("click",function(){
+  document.getElementById("compareModal").classList.remove("open");
+  document.body.style.overflow="";
+});
+document.getElementById("clearCompare").addEventListener("click",function(){
+  compareSelection=[];updateCompareBar();applyFilters();
+});
+
+// ── QUIZ ──
+var quizAnswers={};
+var quizStep=0;
+
+function openQuiz(){
+  quizAnswers={};quizStep=0;
+  document.querySelectorAll(".quiz-step").forEach(function(s){s.classList.remove("active");});
+  document.getElementById("quizResult").classList.remove("active");
+  document.getElementById("step0").classList.add("active");
+  updateDots();
+  document.getElementById("quizModal").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function updateDots(){
+  for(var i=0;i<3;i++){
+    document.getElementById("dot"+i).classList.toggle("done",i<quizStep);
+  }
+}
+function getRecommendation(){
+  var level=quizAnswers[0],style=quizAnswers[1],budget=quizAnswers[2];
+  var scored=rackets.map(function(r){
+    var s=0;
+    if(level==="beginner"&&r.tags.includes("beginner"))s+=3;
+    else if(level==="intermediate"&&r.tags.includes("intermediate"))s+=3;
+    else if(level==="advanced"&&r.tags.includes("advanced"))s+=3;
+    if(style==="control"&&r.tags.includes("control"))s+=2;
+    else if(style==="power"&&r.tags.includes("power"))s+=2;
+    else if(style==="allround")s+=1;
+    if(budget==="under150"&&r.price<150)s+=2;
+    else if(budget==="under200"&&r.price<200)s+=2;
+    else if(budget==="over200"&&r.price>=200)s+=2;
+    s+=r.score/100;
+    return {r:r,s:s};
+  });
+  scored.sort(function(a,b){return b.s-a.s;});
+  return scored[0].r;
+}
+
+document.getElementById("openQuiz").addEventListener("click",openQuiz);
+document.getElementById("closeQuiz").addEventListener("click",function(){
+  document.getElementById("quizModal").classList.remove("open");
+  document.body.style.overflow="";
+});
+document.getElementById("retakeQuiz").addEventListener("click",openQuiz);
+
+document.querySelectorAll(".quiz-opt").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    quizAnswers[quizStep]=btn.dataset.val;
+    quizStep++;
+    updateDots();
+    document.querySelectorAll(".quiz-step").forEach(function(s){s.classList.remove("active");});
+    if(quizStep<3){
+      document.getElementById("step"+quizStep).classList.add("active");
+    } else {
+      var rec=getRecommendation();
+      document.getElementById("qrBadge").textContent=rec.badge;
+      document.getElementById("qrScore").textContent=rec.score;
+      document.getElementById("qrName").textContent=rec.name;
+      document.getElementById("qrBrand").textContent=rec.brand+" \u00b7 "+rec.level;
+      document.getElementById("qrWhy").textContent=rec.quizWhy;
+      document.getElementById("qrLink").href="review.html?racket="+rec.slug;
+      document.getElementById("quizResult").classList.add("active");
+    }
+  });
+});
+
+// ── HAMBURGER ──
 document.getElementById("hamburger").addEventListener("click",function(){
   this.classList.toggle("open");
   document.getElementById("navMenu").classList.toggle("open");
 });
-
 document.querySelectorAll("#navMenu a").forEach(function(link){
   link.addEventListener("click",function(){
     document.getElementById("hamburger").classList.remove("open");
