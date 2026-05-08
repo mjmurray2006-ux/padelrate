@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -191,6 +191,21 @@ footer a{color:var(--green)}
   .shape-compare{grid-template-columns:1fr}
   .decision-grid{grid-template-columns:1fr}
 }
+.hero-img-wrap{margin:0 0 40px;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
+.hero-img-wrap img{width:100%;max-height:380px;object-fit:cover;object-position:center;display:block}
+.quick-take{background:linear-gradient(135deg,#0e1a02 0%,#131f05 100%);border:1px solid rgba(200,241,53,.2);border-radius:14px;padding:22px 26px;margin-bottom:40px}
+.qt-label{font-size:.62rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.qt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qt-item{background:rgba(0,0,0,.3);border-radius:10px;padding:14px 16px;border:1px solid rgba(200,241,53,.1)}
+.qt-role{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.qt-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.04em;color:#fff;margin-bottom:2px}
+.qt-detail{font-size:.75rem;color:#888}
+.racket-img{margin:0 0 20px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface2)}
+.racket-img img{width:100%;max-height:260px;object-fit:contain;display:block;padding:16px 30px}
+.img-placeholder{display:flex;align-items:center;justify-content:center;min-height:160px;background:var(--surface2);border-radius:12px;border:1px solid var(--border);margin:0 0 20px;color:#444;font-size:.8rem;font-style:italic}
+.pull-quote{border-left:3px solid rgba(200,241,53,.4);padding:10px 16px;margin:14px 0;background:rgba(200,241,53,.03);border-radius:0 8px 8px 0}
+.pull-quote p{font-size:.95rem;color:#bbb;line-height:1.7;font-style:italic;margin:0}
+@media(max-width:768px){.qt-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -221,12 +236,38 @@ footer a{color:var(--green)}
 
 <div class="article-wrap">
 
+    <div class="hero-img-wrap" style="background:var(--surface2);display:flex;align-items:center;justify-content:center;padding:32px 16px">
+    <svg width="520" height="220" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="90" cy="96" rx="58" ry="80" stroke="#4dabf7" stroke-width="2.5" fill="rgba(77,171,247,0.06)"/>
+      <circle cx="90" cy="96" r="10" fill="#4dabf7" opacity="0.6"/>
+      <text x="90" y="198" text-anchor="middle" fill="#4dabf7" font-family="Bebas Neue,sans-serif" font-size="13" letter-spacing="1">ROUND</text>
+      <text x="90" y="213" text-anchor="middle" fill="#4dabf7" font-family="DM Sans,sans-serif" font-size="10" opacity="0.6">sweet spot: centre</text>
+      <path d="M260,16 C326,16 332,60 332,96 C332,148 302,176 260,176 C218,176 188,148 188,96 C188,60 194,16 260,16 Z" stroke="#c8f135" stroke-width="2.5" fill="rgba(200,241,53,0.06)"/>
+      <circle cx="260" cy="84" r="10" fill="#c8f135" opacity="0.6"/>
+      <text x="260" y="198" text-anchor="middle" fill="#c8f135" font-family="Bebas Neue,sans-serif" font-size="13" letter-spacing="1">TEARDROP</text>
+      <text x="260" y="213" text-anchor="middle" fill="#c8f135" font-family="DM Sans,sans-serif" font-size="10" opacity="0.6">sweet spot: above centre</text>
+      <path d="M430,16 L494,96 L430,176 L366,96 Z" stroke="#ff6b6b" stroke-width="2.5" fill="rgba(255,107,107,0.06)"/>
+      <circle cx="430" cy="48" r="10" fill="#ff6b6b" opacity="0.6"/>
+      <text x="430" y="198" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="13" letter-spacing="1">DIAMOND</text>
+      <text x="430" y="213" text-anchor="middle" fill="#ff6b6b" font-family="DM Sans,sans-serif" font-size="10" opacity="0.6">sweet spot: top third</text>
+    </svg>
+  </div>
+
   <p class="article-intro">Shape is the single most important characteristic of a padel racket. More so than brand, price, or the technology on the spec sheet. Get the shape wrong and every session becomes harder than it needs to be: mishits pile up, smashes lack pace, and the game feels like a fight against your own equipment. Get it right and the racket amplifies whatever technique you already have. There are three padel racket shapes — round, teardrop and diamond — and each one positions the sweet spot in a different part of the frame, producing a fundamentally different experience on court. This guide explains exactly how each shape works, who it suits, when to move between them, and which rackets from our UK review database we recommend for each type.</p>
 
   <div style="background:var(--surface);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:14px 20px;margin-bottom:36px;display:flex;align-items:center;gap:12px">
     <div>
       <div style="font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Author</div>
       <div style="font-size:.9rem;color:#bbb;line-height:1.6">Written by <a href="../about.html" style="color:var(--green);font-weight:700">Marcus</a>, padel player and PadelRate founder. PadelRate is an independent UK padel racket review site.</div>
+    </div>
+  </div>
+
+  <div class="quick-take">
+    <div class="qt-label">Quick Take</div>
+    <div class="qt-grid">
+      <div class="qt-item" style="border-color:rgba(77,171,247,.25)"><div class="qt-role" style="color:#4dabf7">Beginner</div><div class="qt-name">Round</div><div class="qt-detail">Central sweet spot &middot; Most forgiving</div></div>
+      <div class="qt-item" style="border-color:rgba(200,241,53,.25)"><div class="qt-role">Intermediate</div><div class="qt-name">Teardrop</div><div class="qt-detail">Upper-mid sweet spot &middot; Versatile</div></div>
+      <div class="qt-item" style="border-color:rgba(255,107,107,.25)"><div class="qt-role" style="color:#ff6b6b">Advanced</div><div class="qt-name">Diamond</div><div class="qt-detail">Top-third sweet spot &middot; Max power</div></div>
     </div>
   </div>
 

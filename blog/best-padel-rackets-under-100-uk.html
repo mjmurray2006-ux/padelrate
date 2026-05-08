@@ -188,6 +188,21 @@ footer a{color:var(--green)}
   .score-bars{flex-direction:column}
   .score-bar-item{min-width:unset}
 }
+.hero-img-wrap{margin:0 0 40px;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
+.hero-img-wrap img{width:100%;max-height:380px;object-fit:cover;object-position:center;display:block}
+.quick-take{background:linear-gradient(135deg,#0e1a02 0%,#131f05 100%);border:1px solid rgba(200,241,53,.2);border-radius:14px;padding:22px 26px;margin-bottom:40px}
+.qt-label{font-size:.62rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.qt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qt-item{background:rgba(0,0,0,.3);border-radius:10px;padding:14px 16px;border:1px solid rgba(200,241,53,.1)}
+.qt-role{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.qt-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.04em;color:#fff;margin-bottom:2px}
+.qt-detail{font-size:.75rem;color:#888}
+.racket-img{margin:0 0 20px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface2)}
+.racket-img img{width:100%;max-height:260px;object-fit:contain;display:block;padding:16px 30px}
+.img-placeholder{display:flex;align-items:center;justify-content:center;min-height:160px;background:var(--surface2);border-radius:12px;border:1px solid var(--border);margin:0 0 20px;color:#444;font-size:.8rem;font-style:italic}
+.pull-quote{border-left:3px solid rgba(200,241,53,.4);padding:10px 16px;margin:14px 0;background:rgba(200,241,53,.03);border-radius:0 8px 8px 0}
+.pull-quote p{font-size:.95rem;color:#bbb;line-height:1.7;font-style:italic;margin:0}
+@media(max-width:768px){.qt-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -218,11 +233,22 @@ footer a{color:var(--green)}
 
 <div class="article-wrap">
 
+  <div class="hero-img-wrap"><img src="../images/ryze-pegasus.jpg" alt="Ryze Pegasus best padel racket under 100" loading="eager"></div>
+
   <p class="article-intro">You do not need to spend Â£250 to enjoy padel. If you are just starting out, playing socially, or buying a racket to try the sport before committing to something more serious, the sub-Â£100 bracket has more genuine options than most people realise. We have reviewed and scored every racket in this price range available in the UK market. Here is the honest breakdown â€” ranked by score, not by price or brand.</p>
   <div style="background:var(--surface);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:14px 20px;margin-bottom:36px;display:flex;align-items:center;gap:12px">
     <div>
       <div style="font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Author</div>
       <div style="font-size:.9rem;color:#bbb;line-height:1.6">Written by <a href="../about.html" style="color:var(--green);font-weight:700">Marcus</a>, padel player and PadelRate founder. PadelRate is an independent UK padel racket review site.</div>
+    </div>
+  </div>
+
+  <div class="quick-take">
+    <div class="qt-label">Quick Take</div>
+    <div class="qt-grid">
+      <div class="qt-item"><div class="qt-role">Best Overall</div><div class="qt-name">Ryze Pegasus</div><div class="qt-detail">Score 83 &middot; &pound;89</div></div>
+      <div class="qt-item"><div class="qt-role">Best Value</div><div class="qt-name">Raquex Eclipse</div><div class="qt-detail">Score 80 &middot; &pound;69</div></div>
+      <div class="qt-item"><div class="qt-role">Best for Arms</div><div class="qt-name">Head Evo Speed</div><div class="qt-detail">Score 79 &middot; &pound;79</div></div>
     </div>
   </div>
 
@@ -252,6 +278,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">83<span>Score</span></div>
     </div>
+    <div class="racket-img"><img src="../images/ryze-pegasus.jpg" alt="Ryze Pegasus padel racket" loading="lazy"></div>
     <div class="winner-banner">
       <div class="winner-banner-icon">&#9733;</div>
       <div class="winner-banner-text"><strong>Our top pick under Â£100.</strong> The only racket in this price range with a full carbon fibre construction â€” and it shows in the performance numbers.</div>
@@ -290,6 +317,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">80<span>Score</span></div>
     </div>
+    <div class="racket-img"><img src="../images/raquex-eclipse.jpg" alt="Raquex Eclipse padel racket" loading="lazy"></div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:73%"></div></div><span class="sbi-val">73</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:87%"></div></div><span class="sbi-val">87</span></div>
@@ -324,6 +352,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">79<span>Score</span></div>
     </div>
+    <div class="racket-img"><img src="../images/head-evo-speed.jpg" alt="Head Evo Speed padel racket" loading="lazy"></div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:73%"></div></div><span class="sbi-val">73</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:84%"></div></div><span class="sbi-val">84</span></div>
@@ -358,6 +387,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">78<span>Score</span></div>
     </div>
+    <div class="img-placeholder">No image available</div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:72%"></div></div><span class="sbi-val">72</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:82%"></div></div><span class="sbi-val">82</span></div>
@@ -392,6 +422,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">77<span>Score</span></div>
     </div>
+    <div class="racket-img"><img src="../images/head-extreme-evo.jpg" alt="Head Extreme Evo padel racket" loading="lazy"></div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:74%"></div></div><span class="sbi-val">74</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:80%"></div></div><span class="sbi-val">80</span></div>
@@ -426,6 +457,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">76<span>Score</span></div>
     </div>
+    <div class="racket-img"><img src="../images/wilson-optix-v1.jpg" alt="Wilson Optix V1 padel racket" loading="lazy"></div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:68%"></div></div><span class="sbi-val">68</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:84%"></div></div><span class="sbi-val">84</span></div>
@@ -460,6 +492,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">75<span>Score</span></div>
     </div>
+    <div class="img-placeholder">No image available</div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:68%"></div></div><span class="sbi-val">68</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:85%"></div></div><span class="sbi-val">85</span></div>
