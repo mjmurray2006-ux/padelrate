@@ -104,7 +104,17 @@ nav ul a:hover,nav ul a.active{color:var(--green)}
 .hero-meta{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:20px}
 .hero-meta-item{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px}
 .hero-meta-item strong{color:#888}
-.article-wrap{max-width:800px;margin:0 auto;padding:48px 48px 80px}
+.page-layout{max-width:1100px;margin:0 auto;padding:0 48px;display:flex;gap:48px;align-items:flex-start}
+.sidebar-toc{width:196px;flex-shrink:0;position:sticky;top:76px;padding-top:48px}
+.stoc-label{font-size:.6rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px}
+.stoc-list{list-style:none;display:flex;flex-direction:column;gap:1px}
+.stoc-list a{font-size:.8rem;color:#3d3d3d;line-height:1.5;display:block;padding:5px 0 5px 10px;border-left:2px solid #1e1e1e;transition:all .2s}
+.stoc-list a:hover{color:#777;border-left-color:#333}
+.stoc-list a.toc-active{color:var(--green);border-left-color:var(--green)}
+.article-meta{font-size:.78rem;color:var(--muted);margin-bottom:24px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.article-meta a{color:var(--muted);transition:color .2s}.article-meta a:hover{color:var(--green)}
+.article-meta-sep{opacity:.3;user-select:none}
+.article-wrap{flex:1;min-width:0;padding:48px 0 80px}
 .article-intro{font-size:1.05rem;color:#bbb;line-height:1.85;margin-bottom:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
 .toc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:48px}
 .toc-title{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.06em;color:var(--muted);margin-bottom:12px}
@@ -182,7 +192,9 @@ footer a{color:var(--green)}
   #navMenu li a{display:block;padding:12px 4px;color:#888;border-bottom:1px solid var(--border);font-size:.95rem}
   #navMenu li:last-child a{border-bottom:none}
   .page-hero{padding:40px 24px 36px}
-  .article-wrap{padding:32px 24px 56px}
+  .page-layout{padding:0 24px}
+  .sidebar-toc{display:none}
+  .article-wrap{padding:32px 0 56px}
   .pros-cons{grid-template-columns:1fr}
   .racket-header{flex-direction:column;gap:12px}
   .score-bars{flex-direction:column}
@@ -239,7 +251,7 @@ footer a{color:var(--green)}
 .more-guides li{font-size:.9rem;color:#888;line-height:1.55}
 .more-guides a{color:var(--green);font-weight:700;text-decoration:none}
 .more-guides a:hover{text-decoration:underline}
-@media(max-width:768px){.qt-grid{grid-template-columns:1fr}.article-hero-banner{padding:28px 24px}.ahb-stats{flex-wrap:wrap}.ahb-stat{min-width:50%}.ahb-stat:nth-child(odd){border-right:1px solid var(--border)}.ahb-stat:nth-child(3),.ahb-stat:nth-child(4){border-top:1px solid var(--border)}.racket-ctas{flex-direction:column;align-items:flex-start}.btn-amazon,.review-link{width:100%;justify-content:center}}
+@media(max-width:768px){.racket-ctas{flex-direction:column;align-items:flex-start}.btn-amazon,.review-link{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -260,40 +272,14 @@ footer a{color:var(--green)}
     <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="index.html">Blog</a><span>/</span>Best Under £100</div>
     <div class="hero-tag"><span>&#9733; Roundup &mdash; May 2026</span></div>
     <h1>Best Padel Rackets<br><em>Under £100 UK 2026</em></h1>
-    <div class="hero-meta">
-      <div class="hero-meta-item"><strong>6 rackets reviewed</strong></div>
-      <div class="hero-meta-item"><strong>All under £100</strong></div>
-      <div class="hero-meta-item"><strong>Independent · No brand deals</strong></div>
-    </div>
   </div>
 </div>
 
+<div class="page-layout">
 <div class="article-wrap">
 
-  <div class="article-hero-banner">
-    <div class="ahb-eyebrow">UK Roundup &mdash; May 2026</div>
-    <div class="ahb-price">Under<br><span>&pound;100</span></div>
-    <div class="ahb-sub">Six padel rackets tested and ranked by score &mdash; not by brand, price or paid placement.</div>
-    <div class="ahb-stats">
-      <div class="ahb-stat"><div class="ahb-num">6</div><div class="ahb-lbl">Tested</div></div>
-      <div class="ahb-stat"><div class="ahb-num">83</div><div class="ahb-lbl">Top Score</div></div>
-      <div class="ahb-stat"><div class="ahb-num">&pound;69</div><div class="ahb-lbl">From</div></div>
-      <div class="ahb-stat"><div class="ahb-num">0</div><div class="ahb-lbl">Brand Deals</div></div>
-    </div>
-  </div>
-
-  <p class="article-intro">Most beginners spend £150–£200 on a racket they do not need. The sub-£100 bracket has six options that will carry you through your first year of padel — including one full-carbon racket that outscores frames costing twice as much. We tested and scored all six. Here is the honest ranking.</p>
-  <div style="background:var(--surface);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:14px 20px;margin-bottom:36px;display:flex;align-items:center;gap:12px">
-    <div>
-      <div style="font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Author</div>
-      <div style="font-size:.9rem;color:#bbb;line-height:1.6">Written by <a href="../about.html" style="color:var(--green);font-weight:700">Marcus</a>, padel player and PadelRate founder. PadelRate is an independent UK padel racket review site.</div>
-    </div>
-  </div>
-
-  <div class="trust-box">
-    <div class="trust-box-label">Why Trust This Guide</div>
-    <p class="trust-box-body">We've personally tested every racket on this list and scored them across power, control and touch — not just listed them with affiliate links. PadelRate is independent: no brand sponsorships, no manufacturer payments, no inflated scores. If a racket isn't worth the money, we say so. <span class="trust-disclosure">Some links are affiliate links — we may earn a small commission at no cost to you — but they never change our ratings.</span></p>
-  </div>
+  <p class="article-meta"><a href="../about.html">Marcus</a><span class="article-meta-sep"> &middot; </span>Updated May 2026<span class="article-meta-sep"> &middot; </span>6 min read</p>
+  <p class="article-intro">Most beginners spend £150–£200 on a racket they do not need. The sub-£100 bracket has six options that will carry you through your first year of padel — including one full-carbon racket that outscores frames costing twice as much. We tested and scored all six. Here is the honest ranking. PadelRate is independent — no brand deals, no sponsorships. If a racket isn't worth the money, we say so.</p>
 
   <div class="compare-table-wrap">
     <table class="compare-table">
@@ -365,29 +351,6 @@ footer a{color:var(--green)}
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="quick-take">
-    <div class="qt-label">Quick Take</div>
-    <div class="qt-grid">
-      <div class="qt-item"><div class="qt-role">Best Overall</div><div class="qt-name">Ryze Pegasus</div><div class="qt-detail">Score 83 &middot; &pound;89</div></div>
-      <div class="qt-item"><div class="qt-role">Best Value</div><div class="qt-name">Raquex Eclipse</div><div class="qt-detail">Score 80 &middot; &pound;69</div></div>
-      <div class="qt-item"><div class="qt-role">Best for Arms</div><div class="qt-name">Head Evo Speed</div><div class="qt-detail">Score 79 &middot; &pound;79</div></div>
-    </div>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">In this article</div>
-    <ol>
-      <li><a href="#ryze-pegasus">1. Ryze Pegasus — Best overall under £100</a></li>
-      <li><a href="#raquex-eclipse">2. Raquex Eclipse — Best for control</a></li>
-      <li><a href="#head-evo-speed">3. Head Evo Speed — Best teardrop under £100</a></li>
-      <li><a href="#dunlop-lumina">4. Dunlop Lumina — Best Amazon pick</a></li>
-      <li><a href="#head-extreme-evo">5. Head Extreme Evo — Lightest option</a></li>
-      <li><a href="#wilson-optix-v1">6. Wilson Optix V1 — Best brand name entry racket</a></li>
-      <li><a href="#how-to-choose">How to choose under £100</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ol>
   </div>
 
   <!-- 1. Ryze Pegasus -->
@@ -681,6 +644,13 @@ footer a{color:var(--green)}
     </ul>
   </div>
 
+  <div style="background:var(--surface);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:14px 20px;margin-bottom:48px;display:flex;align-items:center;gap:12px">
+    <div>
+      <div style="font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Author</div>
+      <div style="font-size:.9rem;color:#bbb;line-height:1.6">Written by <a href="../about.html" style="color:var(--green);font-weight:700">Marcus</a>, padel player and PadelRate founder. PadelRate is an independent UK padel racket review site.</div>
+    </div>
+  </div>
+
   <div class="cta-box">
     <h3>Ready to See All <span>Rackets?</span></h3>
     <p>Browse our full database of 18 reviewed and scored rackets, filtered by level, budget and playing style.</p>
@@ -690,7 +660,23 @@ footer a{color:var(--green)}
     </div>
   </div>
 
-</div>
+</div><!-- /.article-wrap -->
+
+  <aside class="sidebar-toc" id="sidebarToc">
+    <div class="stoc-label">Contents</div>
+    <ol class="stoc-list">
+      <li><a href="#ryze-pegasus">Ryze Pegasus</a></li>
+      <li><a href="#raquex-eclipse">Raquex Eclipse</a></li>
+      <li><a href="#head-evo-speed">Head Evo Speed</a></li>
+      <li><a href="#dunlop-lumina">Dunlop Lumina</a></li>
+      <li><a href="#head-extreme-evo">Head Extreme Evo</a></li>
+      <li><a href="#wilson-optix-v1">Wilson Optix V1</a></li>
+      <li><a href="#how-to-choose">How to choose</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </aside>
+
+</div><!-- /.page-layout -->
 
 <footer><p>PadelRate &copy; 2026 &mdash; Independent reviews. Some links are affiliate links. <a href="../about.html">About us</a></p></footer>
 
@@ -698,6 +684,25 @@ footer a{color:var(--green)}
 document.getElementById("hamburger").addEventListener("click",function(){this.classList.toggle("open");document.getElementById("navMenu").classList.toggle("open");});
 document.querySelectorAll("#navMenu a").forEach(function(link){link.addEventListener("click",function(){document.getElementById("hamburger").classList.remove("open");document.getElementById("navMenu").classList.remove("open");});});
 document.querySelectorAll(".racket-img img,.hero-img-wrap img").forEach(function(img){img.addEventListener("error",function(){var w=this.closest(".racket-img")||this.closest(".hero-img-wrap");if(w)w.innerHTML='<div style="display:flex;align-items:center;justify-content:center;min-height:160px;background:#1a1a1a;border-radius:12px;color:#444;font-size:.8rem;font-style:italic">Image unavailable</div>';});});
+(function(){
+  var tocLinks=document.querySelectorAll(".stoc-list a");
+  if(!tocLinks.length) return;
+  var sections=Array.from(tocLinks).map(function(a){return document.querySelector(a.getAttribute("href"))}).filter(Boolean);
+  var active=null;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.id;
+        tocLinks.forEach(function(a){
+          var match=a.getAttribute("href")==="#"+id;
+          a.classList.toggle("toc-active",match);
+        });
+        active=id;
+      }
+    });
+  },{rootMargin:"-80px 0px -60% 0px",threshold:0});
+  sections.forEach(function(s){obs.observe(s)});
+})();
 document.querySelectorAll(".faq-q").forEach(function(q){
   q.addEventListener("click",function(){
     var item=this.closest(".faq-item");
