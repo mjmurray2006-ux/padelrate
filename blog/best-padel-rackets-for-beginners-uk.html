@@ -213,7 +213,7 @@ footer a{color:var(--green)}
   .score-bar-item{min-width:unset}
 }
 .hero-img-wrap{margin:0 0 40px;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
-.hero-img-wrap img{width:100%;max-height:380px;object-fit:cover;object-position:center;display:block}
+.hero-img-wrap img{width:100%;max-height:420px;object-fit:contain;display:block;padding:24px 40px}
 .quick-take{background:linear-gradient(135deg,#0e1a02 0%,#131f05 100%);border:1px solid rgba(200,241,53,.2);border-radius:14px;padding:22px 26px;margin-bottom:40px}
 .qt-label{font-size:.62rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
 .qt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -412,7 +412,7 @@ footer a{color:var(--green)}
       </div>
       <div class="score-badge">78<span>Score</span></div>
     </div>
-    <div class="img-placeholder">No image available</div>
+    <div class="racket-img"><img src="../images/dunlop-lumina.jpg" alt="Dunlop Padel Bat Lumina padel racket" loading="lazy"></div>
     <div class="score-bars">
       <div class="score-bar-item"><span class="sbi-label">Power</span><div class="sbi-track"><div class="sbi-fill" style="width:72%"></div></div><span class="sbi-val">72</span></div>
       <div class="score-bar-item"><span class="sbi-label">Control</span><div class="sbi-track"><div class="sbi-fill" style="width:82%"></div></div><span class="sbi-val">82</span></div>
@@ -628,6 +628,7 @@ footer a{color:var(--green)}
 <script>
 document.getElementById("hamburger").addEventListener("click",function(){this.classList.toggle("open");document.getElementById("navMenu").classList.toggle("open");});
 document.querySelectorAll("#navMenu a").forEach(function(link){link.addEventListener("click",function(){document.getElementById("hamburger").classList.remove("open");document.getElementById("navMenu").classList.remove("open");});});
+document.querySelectorAll(".racket-img img,.hero-img-wrap img").forEach(function(img){img.addEventListener("error",function(){var w=this.closest(".racket-img")||this.closest(".hero-img-wrap");if(w)w.innerHTML='<div style="display:flex;align-items:center;justify-content:center;min-height:160px;background:#1a1a1a;border-radius:12px;color:#444;font-size:.8rem;font-style:italic">Image unavailable</div>';});});
 document.querySelectorAll(".faq-q").forEach(function(q){
   q.addEventListener("click",function(){
     var item=this.closest(".faq-item");
