@@ -6,7 +6,13 @@
       "Bash(git push *)",
       "Bash(git config *)",
       "WebSearch",
-      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\mjmur\\\\Documents\\\\padelrate\" | Where-Object { $_.PSIsContainer -eq $false })"
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\mjmur\\\\Documents\\\\padelrate\" | Where-Object { $_.PSIsContainer -eq $false })",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(Get-ChildItem images/)",
+      "Bash(Select-Object Name)",
+      "Bash(Sort-Object Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\mjmur\\\\Documents\\\\padelrate\\\\images\" | ForEach-Object { $_.Name })"
     ]
   }
 }
