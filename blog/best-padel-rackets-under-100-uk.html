@@ -217,7 +217,29 @@ footer a{color:var(--green)}
 .trust-box-label{font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
 .trust-box-body{font-size:.9rem;color:#bbb;line-height:1.75;margin:0}
 .trust-box-body .trust-disclosure{color:#666}
-@media(max-width:768px){.qt-grid{grid-template-columns:1fr}.article-hero-banner{padding:28px 24px}.ahb-stats{flex-wrap:wrap}.ahb-stat{min-width:50%}.ahb-stat:nth-child(odd){border-right:1px solid var(--border)}.ahb-stat:nth-child(3),.ahb-stat:nth-child(4){border-top:1px solid var(--border)}}
+.compare-table-wrap{overflow-x:auto;margin:0 0 40px;border-radius:12px;border:1px solid var(--border)}
+.compare-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.compare-table thead tr{background:var(--surface);border-bottom:2px solid var(--green)}
+.compare-table th{padding:12px 16px;text-align:left;font-size:.65rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.compare-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+.compare-table tbody tr:last-child{border-bottom:none}
+.compare-table tbody tr:hover{background:rgba(200,241,53,.03)}
+.compare-table td{padding:12px 16px;color:#bbb;vertical-align:middle;white-space:nowrap}
+.compare-table td:first-child{color:rgba(200,241,53,.35);font-family:'Bebas Neue',sans-serif;font-size:1.2rem}
+.compare-table td a{color:var(--green);font-weight:700;text-decoration:none;white-space:normal}
+.compare-table td a:hover{text-decoration:underline}
+.compare-table td:last-child{white-space:normal;color:#888;font-size:.82rem}
+.ct-score{background:var(--green);color:#000;font-family:'Bebas Neue',sans-serif;font-size:1rem;padding:2px 8px;border-radius:5px;display:inline-block;line-height:1.3}
+.racket-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.btn-amazon{background:var(--green);color:#000;padding:11px 18px;border-radius:8px;font-weight:700;font-size:.85rem;transition:all .2s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;line-height:1;flex-shrink:0}
+.btn-amazon:hover{opacity:.88;transform:translateY(-1px)}
+.more-guides{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-bottom:48px}
+.more-guides-label{font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.more-guides ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.more-guides li{font-size:.9rem;color:#888;line-height:1.55}
+.more-guides a{color:var(--green);font-weight:700;text-decoration:none}
+.more-guides a:hover{text-decoration:underline}
+@media(max-width:768px){.qt-grid{grid-template-columns:1fr}.article-hero-banner{padding:28px 24px}.ahb-stats{flex-wrap:wrap}.ahb-stat{min-width:50%}.ahb-stat:nth-child(odd){border-right:1px solid var(--border)}.ahb-stat:nth-child(3),.ahb-stat:nth-child(4){border-top:1px solid var(--border)}.racket-ctas{flex-direction:column;align-items:flex-start}.btn-amazon,.review-link{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -260,7 +282,7 @@ footer a{color:var(--green)}
     </div>
   </div>
 
-  <p class="article-intro">You do not need to spend £250 to enjoy padel. If you are just starting out, playing socially, or buying a racket to try the sport before committing to something more serious, the sub-£100 bracket has more genuine options than most people realise. We have reviewed and scored every racket in this price range available in the UK market. Here is the honest breakdown — ranked by score, not by price or brand.</p>
+  <p class="article-intro">Most beginners spend £150–£200 on a racket they do not need. The sub-£100 bracket has six options that will carry you through your first year of padel — including one full-carbon racket that outscores frames costing twice as much. We tested and scored all six. Here is the honest ranking.</p>
   <div style="background:var(--surface);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:14px 20px;margin-bottom:36px;display:flex;align-items:center;gap:12px">
     <div>
       <div style="font-size:.68rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Author</div>
@@ -271,6 +293,78 @@ footer a{color:var(--green)}
   <div class="trust-box">
     <div class="trust-box-label">Why Trust This Guide</div>
     <p class="trust-box-body">We've personally tested every racket on this list and scored them across power, control and touch — not just listed them with affiliate links. PadelRate is independent: no brand sponsorships, no manufacturer payments, no inflated scores. If a racket isn't worth the money, we say so. <span class="trust-disclosure">Some links are affiliate links — we may earn a small commission at no cost to you — but they never change our ratings.</span></p>
+  </div>
+
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Racket</th>
+          <th>Score</th>
+          <th>Price</th>
+          <th>Shape</th>
+          <th>Face</th>
+          <th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><a href="#ryze-pegasus">Ryze Pegasus</a></td>
+          <td><span class="ct-score">83</span></td>
+          <td>£89</td>
+          <td>Teardrop</td>
+          <td>100% Carbon</td>
+          <td>Best overall</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><a href="#raquex-eclipse">Raquex Eclipse</a></td>
+          <td><span class="ct-score">80</span></td>
+          <td>£69</td>
+          <td>Round</td>
+          <td>Carbon</td>
+          <td>Best value / control</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><a href="#head-evo-speed">Head Evo Speed</a></td>
+          <td><span class="ct-score">79</span></td>
+          <td>£79</td>
+          <td>Teardrop</td>
+          <td>Fibreglass</td>
+          <td>Arm comfort</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><a href="#dunlop-lumina">Dunlop Lumina</a></td>
+          <td><span class="ct-score">78</span></td>
+          <td>£89</td>
+          <td>Hybrid Round</td>
+          <td>Fibreglass</td>
+          <td>Amazon Prime pick</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><a href="#head-extreme-evo">Head Extreme Evo</a></td>
+          <td><span class="ct-score">77</span></td>
+          <td>£74</td>
+          <td>Teardrop</td>
+          <td>Fibreglass</td>
+          <td>Lightweight</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><a href="#wilson-optix-v1">Wilson Optix V1</a></td>
+          <td><span class="ct-score">76</span></td>
+          <td>£74</td>
+          <td>Round</td>
+          <td>Fibreglass</td>
+          <td>Max forgiveness</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="quick-take">
@@ -332,7 +426,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>Priciest in the sub-£100 bracket at £89</li><li>Less forgiving than round-shape alternatives</li><li>Ryze is a smaller brand — less widely stocked</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Beginners wanting to step up, improving players needing a budget backup frame</div>
-    <a href="../ryze-pegasus.html" class="review-link">Read full Ryze Pegasus review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/3QQPbDB" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../ryze-pegasus.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- 2. Raquex Eclipse -->
@@ -367,7 +464,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>Low power output limits progression at intermediate+ level</li><li>Round shape lacks punch for offensive play</li><li>Less visible brand than Head or Wilson</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Complete beginners and players who prioritise control and consistency above power</div>
-    <a href="../raquex-eclipse.html" class="review-link">Read full Raquex Eclipse review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/4tMDSLf" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../raquex-eclipse.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- 3. Head Evo Speed -->
@@ -402,7 +502,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>Fibreglass face limits power ceiling</li><li>Slightly higher priced than some round alternatives</li><li>Not a huge step up from pure round options</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Beginners who want a forgiving teardrop and care about arm comfort</div>
-    <a href="../head-evo-speed.html" class="review-link">Read full Head Evo Speed review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/4tepQkk" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../head-evo-speed.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- 4. Dunlop Lumina -->
@@ -437,7 +540,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>Amazon-exclusive limits in-store try-before-you-buy</li><li>Not the best value at £89 vs the Ryze Pegasus</li><li>Fibreglass face limits performance ceiling</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Beginners who want a trusted brand name available on Amazon Prime</div>
-    <a href="../dunlop-lumina.html" class="review-link">Read full Dunlop Lumina review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/4uxaSar" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../dunlop-lumina.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- 5. Head Extreme Evo -->
@@ -472,7 +578,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>No Innegra technology unlike the Evo Speed</li><li>Lower scores than Raquex Eclipse at a higher price</li><li>Nothing truly distinctive at this price point</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Players who need a lightweight frame — juniors, smaller builds, or those managing arm discomfort</div>
-    <a href="../head-extreme-evo.html" class="review-link">Read full Head Extreme Evo review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/4cOIavE" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../head-extreme-evo.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- 6. Wilson Optix V1 -->
@@ -507,7 +616,10 @@ footer a{color:var(--green)}
       <div class="cons"><h3>Cons</h3><ul><li>Lowest power score of all rackets reviewed here</li><li>Ultra Foam can feel dead compared to firmer alternatives</li><li>No notable technology differentiator beyond foam</li></ul></div>
     </div>
     <div class="best-for-tag"><strong>Best for:</strong>&nbsp;Complete beginners who want maximum forgiveness from a brand they know and trust</div>
-    <a href="../wilson-optix-v1.html" class="review-link">Read full Wilson Optix V1 review &rarr;</a>
+    <div class="racket-ctas">
+      <a href="https://amzn.to/4cRJttQ" class="btn-amazon" target="_blank" rel="noopener nofollow sponsored">Check on Amazon &rarr;</a>
+      <a href="../wilson-optix-v1.html" class="review-link">Read full review &rarr;</a>
+    </div>
   </div>
 
   <!-- How to choose section -->
@@ -557,6 +669,16 @@ footer a{color:var(--green)}
       <div class="faq-q">Can I use a padel racket under £100 for club matches?</div>
       <div class="faq-a">Yes. Budget rackets are perfectly suitable for recreational club play at beginner to early intermediate level. Once you are playing regularly and developing more consistent technique — typically after 6 to 12 months — you will start to notice the limitations of entry-level frames and may want to consider upgrading to the £150–£220 bracket.</div>
     </div>
+  </div>
+
+  <div class="more-guides">
+    <div class="more-guides-label">More guides</div>
+    <ul>
+      <li><a href="best-padel-rackets-for-beginners-uk.html">Best Padel Rackets for Beginners UK 2026</a> &mdash; our full beginner shortlist including rackets above and below £100</li>
+      <li><a href="padel-racket-shapes-explained.html">Padel Racket Shapes Explained</a> &mdash; round vs teardrop vs diamond, and which to choose</li>
+      <li><a href="../guide.html">Complete Padel Racket Buying Guide</a> &mdash; what to look for at every budget from £70 to £350</li>
+      <li><a href="../index.html#rackets">Full racket database</a> &mdash; all 18 reviewed rackets, filterable by level and budget</li>
+    </ul>
   </div>
 
   <div class="cta-box">
