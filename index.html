@@ -204,13 +204,12 @@ footer a{color:var(--green)}
 .compare-close-btn{background:none;border:1px solid #333;color:#888;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:inherit}
 .compare-close-btn:hover{border-color:var(--green);color:var(--green)}
 .compare-grid{display:grid;grid-template-columns:150px 1fr 1fr;border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.compare-label-col,.compare-racket-col{display:flex;flex-direction:column}
-.compare-racket-col{border-left:1px solid var(--border)}
-.compare-cell{padding:13px 16px;border-bottom:1px solid var(--border);font-size:.875rem;display:flex;align-items:center;min-height:52px}
-.compare-label-col .compare-cell{color:#444;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;background:#080808}
-.compare-racket-col .compare-cell{color:#ccc;font-weight:500}
-.compare-racket-col .compare-cell.winner{color:var(--green);font-weight:800}
-.compare-racket-header{padding:20px 16px;background:var(--surface2);border-bottom:1px solid #2a2a2a}
+.compare-cell{padding:13px 16px;border-bottom:1px solid var(--border);font-size:.875rem;display:flex;align-items:center}
+.compare-cell-label{color:#444;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;background:#080808}
+.compare-cell-r{border-left:1px solid var(--border);color:#ccc;font-weight:500}
+.compare-cell-r.winner{color:var(--green);font-weight:800}
+.compare-blank-header{background:#080808;border-bottom:1px solid var(--border)}
+.compare-racket-header{padding:20px 16px;background:var(--surface2);border-bottom:1px solid var(--border);border-left:1px solid var(--border)}
 .crh-badge{font-size:.6rem;font-weight:800;background:var(--green);color:#000;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:8px;text-transform:uppercase}
 .crh-name{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.03em}
 .crh-brand{font-size:.75rem;color:var(--muted);margin-top:2px}
@@ -259,7 +258,7 @@ footer a{color:var(--green)}
 @media(max-width:1024px){.brand-grid{grid-template-columns:repeat(5,1fr)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:40px 24px;min-height:auto}.hero-visual{display:none}.hero-text{padding:40px 0}nav{padding:12px 24px}.section{padding:48px 24px}.section-divider{margin:0 24px}.compare-bar{padding:12px 24px}.brands-section{padding:40px 24px 0}.brand-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.hamburger{display:flex}#navMenu{display:none;width:100%;flex-direction:column;gap:0;order:4;border-top:1px solid var(--border);margin-top:10px}#navMenu.open{display:flex}#navMenu li a{display:block;padding:12px 4px;color:#888;border-bottom:1px solid var(--border);font-size:.95rem}#navMenu li:last-child a{border-bottom:none}.nav-search{order:3;max-width:100%;width:100%}.racket-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.compare-grid{grid-template-columns:90px 1fr 1fr}.compare-cell{padding:10px 10px;font-size:.75rem;min-height:44px}.quiz-box{padding:24px}.hero-stats{gap:20px}.filter-select{padding:8px 28px 8px 12px;font-size:.8rem}.filter-dropdowns{gap:7px}}
+@media(max-width:768px){.hamburger{display:flex}#navMenu{display:none;width:100%;flex-direction:column;gap:0;order:4;border-top:1px solid var(--border);margin-top:10px}#navMenu.open{display:flex}#navMenu li a{display:block;padding:12px 4px;color:#888;border-bottom:1px solid var(--border);font-size:.95rem}#navMenu li:last-child a{border-bottom:none}.nav-search{order:3;max-width:100%;width:100%}.racket-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.compare-grid{grid-template-columns:90px 1fr 1fr}.compare-cell{padding:10px;font-size:.75rem}.quiz-box{padding:24px}.hero-stats{gap:20px}.filter-select{padding:8px 28px 8px 12px;font-size:.8rem}.filter-dropdowns{gap:7px}}
 </style>
 </head>
 <body>
@@ -679,17 +678,32 @@ function updateCompareBar(){
 document.getElementById("openCompareBtn").addEventListener("click",function(){
   var r1=rackets.find(function(x){return x.slug===compareSelection[0];}),r2=rackets.find(function(x){return x.slug===compareSelection[1];});
   var rows=[{label:"Brand",key:"brand"},{label:"Level",key:"level"},{label:"Overall",key:"score",bar:true},{label:"Power",key:"power",bar:true},{label:"Control",key:"control",bar:true},{label:"Touch",key:"touch",bar:true}];
-  function colHTML(r,other){
-    return "<div class=\"compare-racket-col\">"+
-      "<div class=\"compare-racket-header\"><div class=\"crh-badge\">"+r.badge+"</div><div class=\"crh-name\">"+r.name+"</div><div class=\"crh-brand\">"+r.brand+"</div></div>"+
-      rows.map(function(row){var val=r[row.key];var isW=row.bar&&val>other[row.key];var content=row.bar?"<div><span style=\"font-size:1rem;font-weight:900\">"+val+"</span><div class=\"bar-mini\"><div class=\"bar-mini-fill\" style=\"width:"+val+"%\"></div></div></div>":val;return "<div class=\"compare-cell"+(isW?" winner":"")+"\">"+content+"</div>";}).join("")+
-    "</div>";
+  function racketHeaderHTML(r){
+    return "<div class=\"compare-racket-header\"><div class=\"crh-badge\">"+r.badge+"</div><div class=\"crh-name\">"+r.name+"</div><div class=\"crh-brand\">"+r.brand+"</div></div>";
   }
+  function valCellHTML(r,row,other){
+    var val=r[row.key];
+    var isW=row.bar&&val>other[row.key];
+    var content=row.bar
+      ?"<div><span style=\"font-size:1rem;font-weight:900\">"+val+"</span><div class=\"bar-mini\"><div class=\"bar-mini-fill\" style=\"width:"+val+"%\"></div></div></div>"
+      :val;
+    return "<div class=\"compare-cell compare-cell-r"+(isW?" winner":"")+"\">"+content+"</div>";
+  }
+  var rowsHTML=rows.map(function(row){
+    return "<div class=\"compare-cell compare-cell-label\">"+row.label+"</div>"+
+           valCellHTML(r1,row,r2)+
+           valCellHTML(r2,row,r1);
+  }).join("");
   var w1=0,w2=0;["score","power","control","touch"].forEach(function(k){if(r1[k]>r2[k])w1++;else if(r2[k]>r1[k])w2++;});
   var winner=w1>w2?r1:(w2>w1?r2:null);
   var verdict=(winner?"<strong>"+winner.name+"</strong> wins overall. ":"Very evenly matched. ")+"<strong>"+r1.name+"</strong> leads on control ("+r1.control+" vs "+r2.control+"), <strong>"+r2.name+"</strong> leads on power ("+r2.power+" vs "+r1.power+").";
   document.getElementById("compareContent").innerHTML=
-    "<div class=\"compare-grid\"><div class=\"compare-label-col\"><div class=\"compare-cell\" style=\"background:#080808;border-bottom:1px solid #222;min-height:80px\"></div>"+rows.map(function(row){return "<div class=\"compare-cell\">"+row.label+"</div>";}).join("")+"</div>"+colHTML(r1,r2)+colHTML(r2,r1)+"</div>"+
+    "<div class=\"compare-grid\">"+
+      "<div class=\"compare-blank-header\"></div>"+
+      racketHeaderHTML(r1)+
+      racketHeaderHTML(r2)+
+      rowsHTML+
+    "</div>"+
     "<div class=\"compare-verdict\">"+verdict+"</div>"+
     "<div class=\"compare-cta\"><a class=\"btn-primary\" href=\""+r1.slug+".html\">"+r1.name+" Review</a><a class=\"btn-outline\" href=\""+r2.slug+".html\">"+r2.name+" Review</a></div>";
   document.getElementById("compareModal").classList.add("open");document.body.style.overflow="hidden";
