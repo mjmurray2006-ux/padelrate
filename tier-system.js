@@ -53,6 +53,11 @@
     return '<span class="tier-badge '+t.cls+'">'+t.label+'</span>';
   }
 
+  function barBadgeHTML(score){
+    var t=getTier(score);
+    return '<span class="tier-badge bar-tier '+t.cls+'">'+t.label+'</span>';
+  }
+
   function buildHowScore(){
     var cats=['overall','power','control','touch'];
     var catLabels={overall:'Overall',power:'Power',control:'Control',touch:'Touch'};
@@ -83,7 +88,7 @@
       if(scoreBig){
         var overall=parseInt(scoreBig.textContent,10);
         if(!isNaN(overall)){
-          scoreLabel.insertAdjacentHTML('afterend',badgeHTML(overall));
+          scoreLabel.insertAdjacentHTML('afterend','<div class="overall-tier-badge">'+badgeHTML(overall)+'</div>');
         }
       }
     }
@@ -92,7 +97,7 @@
     document.querySelectorAll('.bar-val').forEach(function(el){
       var val=parseInt(el.textContent,10);
       if(!isNaN(val)){
-        el.insertAdjacentHTML('afterend',badgeHTML(val));
+        el.insertAdjacentHTML('afterend',barBadgeHTML(val));
       }
     });
 

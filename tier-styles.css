@@ -6,6 +6,14 @@
 .tier-modest{background:#252525;color:#666;border:1px solid #333}
 .tier-minimal{background:#1c1c1c;color:#4a4a4a;border:1px solid #272727}
 
+/* Overall score tier badge — block wrapper, sits between score-label and stat-bars */
+.score-label{margin-bottom:6px}
+.overall-tier-badge{display:block;margin-bottom:20px}
+.overall-tier-badge .tier-badge{margin-left:0;font-size:.72rem;padding:5px 13px}
+
+/* Stat bar tier badges — smaller, inline flex sibling of .bar-val */
+.bar-tier{font-size:.58rem;padding:2px 7px;margin-left:6px;flex-shrink:0}
+
 /* How-we-score expandable box */
 .how-score-box{background:#0f0f0f;border:1px solid #222;border-radius:12px;margin:28px 0;overflow:hidden}
 .how-score-toggle{width:100%;background:none;border:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
