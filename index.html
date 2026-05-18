@@ -240,7 +240,10 @@ footer a{color:var(--green)}
 .brand-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
 .brand-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 14px 18px;cursor:pointer;transition:all .25s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
 .brand-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 32px rgba(200,241,53,.1)}
+.brand-icon{height:54px;display:flex;align-items:center;justify-content:center;width:100%}
 .brand-abbr{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--green);line-height:1;letter-spacing:.04em}
+.brand-logo-img{height:48px;width:auto;max-width:110px;object-fit:contain;filter:brightness(0) invert(1);opacity:.82;transition:opacity .25s,filter .25s}
+.brand-card:hover .brand-logo-img{opacity:1;filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(200,241,53,.45))}
 .brand-name{font-size:.82rem;font-weight:700;color:#fff;letter-spacing:.02em}
 .brand-count{font-size:.69rem;color:var(--muted)}
 /* New filter bar */
@@ -758,17 +761,21 @@ document.getElementById("hamburger").addEventListener("click",function(){this.cl
 document.querySelectorAll("#navMenu a").forEach(function(link){link.addEventListener("click",function(){document.getElementById("hamburger").classList.remove("open");document.getElementById("navMenu").classList.remove("open");});});
 
 var brandConfig=[
-  {brand:"NOX",abbr:"NOX"},
-  {brand:"Bullpadel",abbr:"BUL"},
-  {brand:"Head",abbr:"HEAD"},
+  {brand:"NOX",abbr:"NOX",logo:"brand-logos/nox-logo.svg"},
+  {brand:"Bullpadel",abbr:"BUL",logo:"brand-logos/bullpadel-logo.svg"},
+  {brand:"Head",abbr:"HEAD",logo:"brand-logos/head-logo.svg"},
   {brand:"Wilson",abbr:"WIL"},
   {brand:"Adidas",abbr:"ADI"},
-  {brand:"Babolat",abbr:"BAB"},
+  {brand:"Babolat",abbr:"BAB",logo:"brand-logos/babolat-logo.svg"},
   {brand:"Dunlop",abbr:"DUN"},
   {brand:"Oxdog",abbr:"OXD"},
   {brand:"Raquex",abbr:"RAQ"},
   {brand:"Ryze",abbr:"RYZ"}
 ];
+
+function brandLogoFail(img,abbr){
+  img.parentElement.innerHTML='<span class="brand-abbr">'+abbr+'</span>';
+}
 
 function renderBrands(){
   var sorted=brandConfig.slice().sort(function(a,b){
@@ -780,8 +787,11 @@ function renderBrands(){
   var grid=document.getElementById("brandGrid");
   grid.innerHTML=sorted.map(function(b){
     var count=rackets.filter(function(r){return r.brand===b.brand;}).length;
+    var iconHTML=b.logo
+      ?"<div class=\"brand-icon\"><img class=\"brand-logo-img\" src=\""+b.logo+"\" alt=\""+b.brand+" logo\" onerror=\"brandLogoFail(this,'"+b.abbr+"')\"></div>"
+      :"<div class=\"brand-icon\"><span class=\"brand-abbr\">"+b.abbr+"</span></div>";
     return "<div class=\"brand-card\" data-brand=\""+b.brand+"\" role=\"button\" tabindex=\"0\" aria-label=\"Filter by "+b.brand+"\">"+
-      "<div class=\"brand-abbr\">"+b.abbr+"</div>"+
+      iconHTML+
       "<div class=\"brand-name\">"+b.brand+"</div>"+
       "<div class=\"brand-count\">"+count+" racket"+(count===1?"":"s")+"</div>"+
     "</div>";
