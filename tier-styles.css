@@ -1,0 +1,20 @@
+/* Tier badge — used on racket pages */
+.tier-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.tier-elite{background:#c8f135;color:#0a0a0a}
+.tier-strong{background:rgba(200,241,53,.14);color:#bcd428;border:1px solid rgba(200,241,53,.25)}
+.tier-balanced{background:rgba(200,241,53,.07);color:#7d9a20;border:1px solid rgba(200,241,53,.12)}
+.tier-modest{background:#252525;color:#666;border:1px solid #333}
+.tier-minimal{background:#1c1c1c;color:#4a4a4a;border:1px solid #272727}
+
+/* How-we-score expandable box */
+.how-score-box{background:#0f0f0f;border:1px solid #222;border-radius:12px;margin:28px 0;overflow:hidden}
+.how-score-toggle{width:100%;background:none;border:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+.hst-label{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em}
+.hst-arrow{font-size:.7rem;color:#555;transition:transform .25s}
+.how-score-box.open .hst-arrow{transform:rotate(180deg)}
+.how-score-body{display:none;padding:4px 18px 18px}
+.how-score-box.open .how-score-body{display:block}
+.hs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px}
+.hs-tier-row{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#131313;border-radius:8px;border:1px solid #1e1e1e}
+.hs-tier-row .tier-badge{margin-left:0}
+.hs-desc{font-size:.75rem;color:#666;line-height:1.3}

@@ -141,6 +141,7 @@ footer a{color:var(--green)}
 .review-img a::after{content:'Click to enlarge';position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.04em;padding:5px 12px;border-radius:20px;opacity:0;transition:opacity .25s;white-space:nowrap;pointer-events:none}
 .review-img a:hover::after{opacity:1}
 </style>
+<link rel="stylesheet" href="tier-styles.css">
 </head>
 <body>
 <nav>
@@ -238,5 +239,6 @@ document.getElementById("relatedGrid").innerHTML=related.map(function(r){
 document.getElementById("hamburger").addEventListener("click",function(){this.classList.toggle("open");document.getElementById("navMenu").classList.toggle("open");});
 document.querySelectorAll("#navMenu a").forEach(function(link){link.addEventListener("click",function(){document.getElementById("hamburger").classList.remove("open");document.getElementById("navMenu").classList.remove("open");});});
 </script>
+<script src="tier-system.js"></script>
 </body>
 </html>

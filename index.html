@@ -152,6 +152,7 @@ nav ul a:hover{color:var(--green)}
 .stat-lbl{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);margin-top:4px}
 .card-score{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--green);line-height:1}
+.card-score-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
 .card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
 .tag{font-size:.65rem;color:#555;background:var(--surface2);padding:3px 8px;border-radius:8px;border:1px solid var(--border)}
 .no-results{text-align:center;padding:80px;color:var(--muted);font-size:1rem;display:none}
@@ -260,6 +261,7 @@ footer a{color:var(--green)}
 @media(max-width:600px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.hamburger{display:flex}#navMenu{display:none;width:100%;flex-direction:column;gap:0;order:4;border-top:1px solid var(--border);margin-top:10px}#navMenu.open{display:flex}#navMenu li a{display:block;padding:12px 4px;color:#888;border-bottom:1px solid var(--border);font-size:.95rem}#navMenu li:last-child a{border-bottom:none}.nav-search{order:3;max-width:100%;width:100%}.racket-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.compare-grid{grid-template-columns:90px 1fr 1fr}.compare-cell{padding:10px;font-size:.75rem}.quiz-box{padding:24px}.hero-stats{gap:20px}.filter-select{padding:8px 28px 8px 12px;font-size:.8rem}.filter-dropdowns{gap:7px}}
 </style>
+<link rel="stylesheet" href="tier-styles.css">
 </head>
 <body>
 <nav>
@@ -529,6 +531,8 @@ function renderBest(){
 
 var compareSelection=[];
 var nudgeTimer;
+var _tiers=[{min:90,cls:'tier-elite',label:'Elite'},{min:80,cls:'tier-strong',label:'Strong'},{min:70,cls:'tier-balanced',label:'Balanced'},{min:60,cls:'tier-modest',label:'Modest'},{min:0,cls:'tier-minimal',label:'Minimal'}];
+function gTL(s){for(var i=0;i<_tiers.length;i++)if(s>=_tiers[i].min)return _tiers[i];return _tiers[_tiers.length-1];}
 function cardHTML(r){
   var tags=r.tags.map(function(t){return "<span class=\"tag\">"+t+"</span>";}).join("");
   return "<article class=\"racket-card\" data-slug=\""+r.slug+"\">"+
@@ -547,7 +551,7 @@ function cardHTML(r){
         "<div class=\"stat-box\"><div class=\"stat-val\">"+r.touch+"</div><div class=\"stat-lbl\">Touch</div></div>"+
       "</div>"+
       "<div class=\"card-tags\">"+tags+"</div>"+
-      "<div class=\"card-footer\"><span style=\"font-size:.78rem;color:var(--green);font-weight:700\">Read Review &rarr;</span><span class=\"card-score\">"+r.score+"</span></div>"+
+      "<div class=\"card-footer\"><span style=\"font-size:.78rem;color:var(--green);font-weight:700\">Read Review &rarr;</span><span class=\"card-score-wrap\"><span class=\"card-score\">"+r.score+"</span><span class=\"tier-badge "+gTL(r.score).cls+"\" style=\"font-size:.5rem;padding:2px 6px\">"+gTL(r.score).label+"</span></span></div>"+
     "</div>"+
   "</article>";
 }
@@ -684,8 +688,9 @@ document.getElementById("openCompareBtn").addEventListener("click",function(){
   function valCellHTML(r,row,other){
     var val=r[row.key];
     var isW=row.bar&&val>other[row.key];
+    var t=row.bar?gTL(val):null;
     var content=row.bar
-      ?"<div><span style=\"font-size:1rem;font-weight:900\">"+val+"</span><div class=\"bar-mini\"><div class=\"bar-mini-fill\" style=\"width:"+val+"%\"></div></div></div>"
+      ?"<div><span style=\"font-size:1rem;font-weight:900\">"+val+"</span><span class=\"tier-badge "+t.cls+"\" style=\"font-size:.5rem;padding:2px 6px;margin-left:5px\">"+t.label+"</span><div class=\"bar-mini\"><div class=\"bar-mini-fill\" style=\"width:"+val+"%\"></div></div></div>"
       :val;
     return "<div class=\"compare-cell compare-cell-r"+(isW?" winner":"")+"\">"+content+"</div>";
   }
@@ -799,5 +804,6 @@ renderBest();
 renderBrands();
 renderGrid(rackets);
 </script>
+<script src="tier-system.js"></script>
 </body>
 </html>
